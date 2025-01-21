@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+gem "rspec-rails"
+
 end
 
 group :development do
@@ -61,3 +64,4 @@ gem "jwt", "~> 2.10"
 
 # bcrypt for adding security in password
 gem "bcrypt", "~> 3.1"
+
