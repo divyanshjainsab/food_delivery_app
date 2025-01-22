@@ -1,0 +1,72 @@
+<%= stylesheet_link_tag 'partials/form' %>
+
+<div id="container">
+    <div id="box">
+        <p id="title"><%= heading %></p>
+        <%= form_for [:user, model] do |f| %>
+            <%= f.fields_for :user do |user| %> 
+                <div>
+                    <%= user.label :name %>
+                    <%= user.text_field :name %>
+                </div>
+                <div>
+                    <%= user.label :email %>
+                    <%= user.email_field :email %>
+                </div>
+                <div>
+                    <%= user.label :password %>
+                    <%= user.password_field :password, autocomplete: "off" %>
+                </div>
+                <div>
+                    <%= user.label :password_confirmation %>
+                    <%= user.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+                <div>
+                    <%= user.label :phone %>
+                    <%= user.text_field :phone %>
+                </div>
+                <div>
+                    <%= user.label :address %>
+                    <%= user.text_area :address %>
+                </div>
+            <% end %>
+            <% if model.is_a?(Restaurant) %>
+                <%= f.fields_for :model do |m| %> 
+                    <div>
+                        <%= m.label :fssai_licence %>
+                        <%= m.text_field :fssai_licence %>
+                    </div>
+                    <div>
+                        <%= m.label :category, "Category" %>
+                        <span>
+                            <%= m.radio_button :category, :value => "veg" %> Veg
+                        </span>
+                        <span>
+                            <%= m.radio_button :category, :value => "non-veg" %> non-Veg
+                        </span>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% if model.is_a?(Rider) %>
+                <%= f.fields_for :model do |m| %> 
+                    <div>
+                        <%= m.label :driving_licence %>
+                        <%= m.text_field :driving_licence %>
+                    </div>
+                    <div>
+                        <%= m.label :vehical_number %>
+                        <%= m.text_field :vehical_number %>
+                    </div>
+                    <div>
+                        <%= m.label :date_of_birth %>
+                        <%= m.date_field :date_of_birth %>
+                    </div>
+                <% end %>
+            <% end %>
+
+              
+            <%= f.submit 'Submit', id: "submit" %>
+        <% end %>
+    </div>
+</div>
