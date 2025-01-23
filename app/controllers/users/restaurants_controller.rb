@@ -1,12 +1,9 @@
-class User::RestaurantsController < ApplicationController
+class Users::RestaurantsController < ApplicationController
   def new
     @restaurant = Restaurant.new
   end 
 
   def create
-    debugger
-    debugger
-    user_params
   end
 
   private

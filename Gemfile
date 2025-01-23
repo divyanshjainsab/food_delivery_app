@@ -57,6 +57,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # to see the confirmation mails
+  gem "letter_opener_web", "~> 3.0"
 end
 
 # jwt for authentication
@@ -64,4 +67,5 @@ gem "jwt", "~> 2.10"
 
 # bcrypt for adding security in password
 gem "bcrypt", "~> 3.1"
+
 

@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "authentication/new" %>
+
+<div id="container">
+    <div id="box">
+        <p id="title">Login</p>
+        <form action="/authentication" method="post">
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" minlength="8" required>
+            </div>
+            <button type="submit" id="submit">Login</button> 
+        </form>
+    </div>
+</div>
