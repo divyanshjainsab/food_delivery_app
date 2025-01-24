@@ -9,8 +9,6 @@ class UserMailer < ApplicationMailer
 
   def account_creation_confirmation_mail
     @user = params[:user]
-    @model = params[:model]
-
     mail(to: @user.email, subject: "Your account is successfully created with role of #{@user.entryable_type}" )
   end
 end

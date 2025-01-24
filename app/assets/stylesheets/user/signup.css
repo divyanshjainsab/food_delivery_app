@@ -20,18 +20,13 @@
 
 #title {
   font-size: 2rem;
+  margin: 0;
+  padding: 1rem;
   font-weight: 900;
 }
 
-.field {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-.field label {
-  font-size: 1.2rem;
+ul {
+  list-style: none;
 }
 
 .button {
@@ -51,16 +46,4 @@
 
 .button:active {
   background-color: red;
-}
-
-input[type='email'],
-input[type='password'] {
-  color: black;
-  font-weight: 500;
-  padding: 2px 5px;
-  font-size: 1rem;
-  text-align: center;
-  border-radius: 1rem;
-  border: none;
-  background-color: lightblue;
 }

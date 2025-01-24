@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag 'user/index' %>
+
+<div id="container">
+    <% if session[:id] %>
+        <div id="box">
+            Hello <%= session[:role]%>
+        </div>
+    <% else %>
+    <div id="message-box">
+        <%= link_to  "Kindly login to proceed.", new_auth_path, id:"message"%>
+    </div>
+    <% end %>
+</div>

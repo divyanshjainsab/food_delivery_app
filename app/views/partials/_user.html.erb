@@ -1,0 +1,26 @@
+<%= form.fields_for :user do |user| %> 
+    <div>
+        <%= user.label :name %>
+        <%= user.text_field :name, required:true %>
+    </div>
+    <div>
+        <%= user.label :email %>
+        <%= user.email_field :email, required:true %>
+    </div>
+    <div>
+        <%= user.label :password %>
+        <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true %>
+    </div>
+    <div>
+        <%= user.label :password_confirmation %>
+        <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true %>
+    </div>
+    <div>
+        <%= user.label :phone %>
+        <%= user.telephone_field :phone, required:true %>
+    </div>
+    <div>
+        <%= user.label :address %>
+        <%= user.text_area :address, required:true %>
+    </div>
+<% end %>

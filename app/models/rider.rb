@@ -3,5 +3,6 @@ class Rider < ApplicationRecord
 
   enum :status, %i[ free busy ]
 
-  validates :driving_licence, :vehical_number, :date_of_birth, presence: true, absence: false
+  validates :driving_licence, :vehical_number, :date_of_birth, :status, presence: true, absence: false
+
 end

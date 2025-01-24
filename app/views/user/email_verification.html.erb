@@ -1,0 +1,9 @@
+<div id="container">
+    <div id="box">
+        <%= form_with url: "/verify" do |f| %>
+            <%= f.label :otp, "Enter OTP" %>
+            <%= f.number_field :otp %>
+            <%= f.submit %>
+        <% end %>
+    </div>
+</div>

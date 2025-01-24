@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     delegated_type :entryable, types: %w[ Restaurant Rider Client ]
-
+    has_one :misc, touch: true
 
 
     validates :password, confirmation: true
@@ -10,5 +10,5 @@ class User < ApplicationRecord
     validates :password,
             length: { minimum: 8 },
             if: -> { new_record? || !password.nil? }
-
+    validates :verified_tag, presence: false
 end

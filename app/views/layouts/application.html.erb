@@ -24,6 +24,20 @@
   </head>
 
   <body>
+    <%# navbar added%>
+    <nav id="navbar">
+      <div>
+          <%= link_to  "food.Delivery.app", '/', id: "logo"%>
+      </div>
+
+      <div>
+          <% if session[:id] %>
+              <%= link_to "Logout", auth_index_path, class: "action_button" %>
+          <% else %>
+              <%= link_to "login", new_auth_path, class: "action_button" %>
+          <% end %>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

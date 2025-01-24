@@ -4,69 +4,18 @@
     <div id="box">
         <p id="title"><%= heading %></p>
         <%= form_for [:users, model] do |f| %>
-            <%= f.fields_for :user do |user| %> 
-                <div>
-                    <%= user.label :name %>
-                    <%= user.text_field :name, required:true %>
-                </div>
-                <div>
-                    <%= user.label :email %>
-                    <%= user.email_field :email, required:true %>
-                </div>
-                <div>
-                    <%= user.label :password %>
-                    <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true %>
-                </div>
-                <div>
-                    <%= user.label :password_confirmation %>
-                    <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true %>
-                </div>
-                <div>
-                    <%= user.label :phone %>
-                    <%= user.phone_field :phone, required:true %>
-                </div>
-                <div>
-                    <%= user.label :address %>
-                    <%= user.text_area :address, required:true %>
-                </div>
-            <% end %>
+            <%= render partial: 'partials/user', locals: { form: f} %>
+
             <% if model.is_a?(Restaurant) %>
-                <%= f.fields_for :model do |m| %> 
-                    <div>
-                        <%= m.label :fssai_licence %>
-                        <%= m.text_field :fssai_licence, required:true %>
-                    </div>
-                    <div>
-                        <%= m.label :category, "Category" %>
-                        <span>
-                            <%= m.radio_button :category, :value => "veg" %> Veg
-                        </span>
-                        <span>
-                            <%= m.radio_button :category, :value => "non-veg" %> non-Veg
-                        </span>
-                    </div>
-                <% end %>
+                <%= render partial: 'partials/restaurant', locals: { model: model , form: f} %>
             <% end %>
 
             <% if model.is_a?(Rider) %>
-                <%= f.fields_for :model do |m| %> 
-                    <div>
-                        <%= m.label :driving_licence %>
-                        <%= m.text_field :driving_licence %>
-                    </div>
-                    <div>
-                        <%= m.label :vehical_number %>
-                        <%= m.text_field :vehical_number, required:true %>
-                    </div>
-                    <div>
-                        <%= m.label :date_of_birth %>
-                        <%= m.date_field :date_of_birth, required:true, max: Date.today - 18.year, placeholder: "Date" %>
-                    </div>
-                <% end %>
+                <%= render partial: 'partials/rider', locals: { model: model , form: f} %>
             <% end %>
 
-              
             <%= f.submit 'Submit', id: "submit" %>
+            <%= render  "partials/back_button" %>
         <% end %>
     </div>
 </div>

@@ -1,0 +1,18 @@
+<%= form.fields_for :model do |m| %> 
+    <div>
+        <%= m.label :fssai_licence %>
+        <%= m.text_field :fssai_licence, required:true %>
+    </div>
+    <div>
+        <%= m.label :category, "Category" %>
+        <span>
+            <%= m.radio_button :category, "veg", checked: true %>
+            <%= m.label :category, "Veg" %>
+        </span>
+        <span>
+            <%= m.radio_button :category, "non-veg" %>
+            <%= m.label :category, "non-Veg" %>
+            
+        </span>
+    </div>
+<% end %>

@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_21_121524) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_23_132306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "clients", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "miscs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "otp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_miscs_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -27,7 +35,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_21_121524) do
   end
 
   create_table "riders", force: :cascade do |t|
-    t.integer "status", null: false
+    t.integer "status", null: false, default: 1
     t.string "driving_licence", null: false
     t.string "vehical_number", null: false
     t.date "date_of_birth"
@@ -45,6 +53,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_21_121524) do
     t.text "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "verified_tag", default: false
     t.index ["entryable_type", "entryable_id"], name: "index_users_on_entryable"
   end
 end

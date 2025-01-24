@@ -1,0 +1,14 @@
+<%= form.fields_for :model do |m| %> 
+    <div>
+        <%= m.label :driving_licence %>
+        <%= m.text_field :driving_licence %>
+    </div>
+    <div>
+        <%= m.label :vehical_number %>
+        <%= m.text_field :vehical_number, required:true %>
+    </div>
+    <div>
+        <%= m.label :date_of_birth %>
+        <%= m.date_field :date_of_birth, required:true, max: Date.today - 18.year, placeholder: "Date" %>
+    </div>
+<% end %>

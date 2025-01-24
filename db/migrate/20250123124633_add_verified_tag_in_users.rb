@@ -1,0 +1,5 @@
+class AddVerifiedTagInUsers < ActiveRecord::Migration[8.0]
+  def change
+    add_column :users, :verified_tag, :boolean, default: false
+  end
+end

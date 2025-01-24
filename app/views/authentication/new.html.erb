@@ -12,7 +12,10 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" minlength="8" required>
             </div>
-            <button type="submit" id="submit">Login</button> 
+            <button type="submit" class="button">Login</button> 
+            <hr/>
+            <%= link_to  "Signup", "/signup", class: "button"%>
         </form>
+        <%= render  "partials/back_button" %>
     </div>
 </div>
