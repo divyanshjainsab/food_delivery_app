@@ -1,13 +1,19 @@
-#button {
-  width: max-content;
-  margin-top: 1.5rem;
+#back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
   text-decoration: none;
-  align-self: end;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 1rem;
-  color: #fff;
-  font-weight: 500;
-  background-color: lightseagreen;
+}
+
+#back-button:hover {
+  background-color: #0056b3;
+}
+
+#back-button:focus {
+  outline: none;
 }

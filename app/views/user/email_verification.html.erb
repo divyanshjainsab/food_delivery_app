@@ -1,9 +1,15 @@
+<%= stylesheet_link_tag 'user/email_verification' %>
 <div id="container">
     <div id="box">
-        <%= form_with url: "/verify" do |f| %>
-            <%= f.label :otp, "Enter OTP" %>
-            <%= f.number_field :otp %>
-            <%= f.submit %>
+        <%= form_with url: "/verify", method: :post, local: true do |f| %>
+            <h1 id="title">OTP Verification</h1>
+            <div id="inp">
+                <%= f.label :otp, "Enter OTP" %>
+                <%= f.number_field :otp, required: true, min: 100000, max: 999999, placeholder: "6-digit OTP" %>
+            </div>
+            <%= f.submit "Verify", id: "submit" %>
         <% end %>
+
+        <%= render  "partials/back_button" %>
     </div>
 </div>

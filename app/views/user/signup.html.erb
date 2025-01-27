@@ -2,9 +2,14 @@
 <div id="container">
     <div id="box">
         <p id="title">Choose User Type</p>
-            <%= link_to  "Client / User", new_users_clients_path, class: "button" %>
-            <%= link_to  "Rider / Delivery-Partner", new_users_riders_path, class: "button" %>
-            <%= link_to  "Restaurant Owner", new_users_restaurants_path, class: "button" %>
-    <%= render  "partials/back_button" %>
+        
+        <!-- User Type Links -->
+        <%= link_to  "Client / User", new_users_clients_path, class: "button" %>
+        <%= link_to  "Rider / Delivery-Partner", new_users_riders_path, class: "button" %>
+        <%= link_to  "Restaurant Owner", new_users_restaurants_path, class: "button" %>
+    </div>
+    
+    <div id="back-button-container">
+        <%= render "partials/back_button" %>
     </div>
 </div>

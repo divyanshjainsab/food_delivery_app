@@ -21,21 +21,82 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%# disabled all css loads %>
     <%= javascript_importmap_tags %>
+    <style>
+    
+      #navbar {
+        display: flex;
+        justify-content: space-between;buttons */
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #4CAF50;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      #logo-container {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #logo {
+        text-decoration: none;
+        color: white;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      #auth-links {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .action_button {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #333;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-left: 15px;
+        transition: background-color 0.3s ease;
+      }
+
+      .action_button:hover {
+        background-color: #555;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 768px) {
+        #navbar {
+          padding: 10px 20px;
+        }
+
+        #logo-container {
+          font-size: 20px;
+        }
+
+        .action_button {
+          padding: 8px 15px;
+          font-size: 14px;
+        }
+      }
+
+    </style>
   </head>
 
   <body>
-    <%# navbar added%>
+    <%# Navbar Added %>
     <nav id="navbar">
-      <div>
-          <%= link_to  "food.Delivery.app", '/', id: "logo"%>
+      <div id="logo-container">
+        <%= link_to "food.Delivery.app", '/', id: "logo" %>
       </div>
 
-      <div>
-          <% if session[:id] %>
-              <%= link_to "Logout", auth_index_path, class: "action_button" %>
-          <% else %>
-              <%= link_to "login", new_auth_path, class: "action_button" %>
-          <% end %>
+      <div id="auth-links">
+        <% if cookies[:id] %>
+          <%= link_to "Logout", auth_index_path, class: "action_button" %>
+        <% else %>
+          <%= link_to "Login", new_auth_path, class: "action_button" %>
+        <% end %>
       </div>
     </nav>
     <%= yield %>

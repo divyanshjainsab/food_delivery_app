@@ -1,0 +1,105 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+#addBtn {
+  background-color: #fff;
+  color: #4CAF50;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 2px solid #4CAF50;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+#addBtn:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Section for the dish cards */
+#dish-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Dish Card Styles */
+.dish-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  padding: 20px;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
+.dish-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dish-card h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.dish-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.dish-card .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #header h1 {
+    font-size: 28px;
+  }
+
+  #addBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  #dish-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .dish-card img {
+    height: 150px;
+  }
+}
