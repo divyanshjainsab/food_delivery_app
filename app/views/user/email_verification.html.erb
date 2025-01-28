@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag 'user/email_verification' %>
 <div id="container">
     <div id="box">
+        <% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
         <%= form_with url: "/verify", method: :post, local: true do |f| %>
             <h1 id="title">OTP Verification</h1>
             <div id="inp">
@@ -9,7 +12,9 @@
             </div>
             <%= f.submit "Verify", id: "submit" %>
         <% end %>
-
+        <div id="resend">
+            <%= link_to 'Resend OTP', resend_otp_path, method: :post, id: 'resend_otp' %>
+        </div>
         <%= render  "partials/back_button" %>
     </div>
 </div>

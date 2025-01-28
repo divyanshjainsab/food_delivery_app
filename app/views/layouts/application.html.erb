@@ -93,7 +93,7 @@
 
       <div id="auth-links">
         <% if cookies[:id] %>
-          <%= link_to "Logout", auth_index_path, class: "action_button" %>
+          <%= link_to "Logout", '/logout', class: "action_button" %>
         <% else %>
           <%= link_to "Login", new_auth_path, class: "action_button" %>
         <% end %>
