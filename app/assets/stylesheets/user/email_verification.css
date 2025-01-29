@@ -85,3 +85,29 @@
 #back-button:focus {
   outline: none;
 }
+
+#resend {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#resend a {
+  color: #4caf50;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#resend a:hover {
+  color: #45a049;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  color: #31708f;
+  border: 1px solid #bce8f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

@@ -12,10 +12,18 @@ Rails.application.routes.draw do
   # otp verification for registration
   get '/verify', to: "user#email_verification"
   post '/verify', to: "user#verification"
+  get 'resend_otp', to: 'user#resend_otp'
 
-  resources :authentication, as: "auth", only: %i[ create new index ] 
+  # logout
+  get '/logout', to: "authentication#logout", as: 'auth'
+
+  resources :authentication, as: "auth", only: %i[ create new] 
   # we dont want to disclose all users information.
   namespace "users" do
-    resource :clients, :restaurants, :riders
+    resource :clients, :restaurants, :riders, only: %i[new create]
+  end
+
+  namespace "restaurant" do
+    resources :dishes
   end
 end

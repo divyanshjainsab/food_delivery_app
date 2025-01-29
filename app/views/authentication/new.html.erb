@@ -4,6 +4,9 @@
     <div id="box">
         <p id="title">Login</p>
         <form action="/authentication" method="post">
+        <% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
             <div class="field">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" required>

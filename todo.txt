@@ -1,0 +1,4 @@
+1 -> locals aren't passed futher as they given
+    line
+
+2 -> adding a image in show/dishes

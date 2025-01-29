@@ -8,16 +8,12 @@ class ApplicationController < ActionController::Base
       JWT.encode(payload, SECRET_KEY) 
   end
 
-  def decoded_token
-      header = request.headers['Authorization']
-      if header
-          token = header.split(" ")[1]
-          begin
-              JWT.decode(token, SECRET_KEY)
-          rescue JWT::DecodeError
-              nil
-          end
-      end
+  def decoded_token(token)
+    begin
+        JWT.decode(token, SECRET_KEY)
+    rescue JWT::DecodeError
+        nil
+    end
   end
 
   protected
@@ -35,8 +31,8 @@ class ApplicationController < ActionController::Base
     # update otp in user misc
     user.misc.update! otp: otp
 
-    # creating session for verify
-    session[:temp_id] = user.id
+    # creating cookies for verify
+    cookies[:temp_id] = user.id
 
      # redirect to verify page
     redirect_to "/verify"
@@ -63,6 +59,15 @@ class ApplicationController < ActionController::Base
 
     # returning user
     user
+  end
+
+  protected
+  def get_role
+    decoded_token(cookies[:role])[0] if (cookies[:role])
+  end
+
+  def get_id
+    decoded_token(cookies[:id])[0] if (cookies[:id])
   end
 
 end

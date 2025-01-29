@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "restaurant/dishes/show" %>
+<%= content_for :title, @dish.name %>
+
+<div class="container my-5">
+  <div class="card" style="max-width: 800px; margin: 0 auto;">
+   
+    <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="image" class="card-img-top">
+
+
+    <div class="card-body">
+      <h2 class="card-title"><%= @dish.name %></h2>
+
+      <p class="card-text"><%= @dish.description %></p>
+
+      <p class="card-text">
+        <strong>Price: </strong> $<%= @dish.price %>
+      </p>
+
+      <%= link_to 'Back to Dishes', restaurant_dishes_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

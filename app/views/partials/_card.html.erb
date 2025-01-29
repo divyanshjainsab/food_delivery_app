@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag 'partials/card' %>
+
+<div id="tile">
+    <% dish = locals[:dish] %>
+    <div id="image-container">
+        <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="image" id="image">
+    </div>
+    <div id="card-content">
+        <h2 id="dish-title"><%= dish.name %></h2>
+        <p id="dish-description"><%= dish.description %></p>
+        <div id="dish-footer">
+            <span id="dish-price">$<%= dish.price %></span>
+            <%= link_to "Order Now", "#", class: "order-button" %>
+        </div>
+    </div>
+</div>

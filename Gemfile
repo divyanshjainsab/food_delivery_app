@@ -69,3 +69,5 @@ gem "jwt", "~> 2.10"
 gem "bcrypt", "~> 3.1"
 
 
+
+gem "image_processing", "~> 1.13"
