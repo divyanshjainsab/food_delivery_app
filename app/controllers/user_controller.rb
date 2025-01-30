@@ -1,5 +1,13 @@
 class UserController < ApplicationController
   def index
+    case get_role
+    when "Client"
+      redirect_to restaurants_path
+    when "Restaurant"
+      redirect_to restaurant_dishes_path
+    when "Rider"
+      # lets see
+    end
   end
 
   def signup
@@ -21,6 +29,6 @@ class UserController < ApplicationController
 
   def resend_otp
     flash[:notice] = "OTP has been resent to your email."
-    send_otp
+    send_otp User.find(cookies[:temp_id])
   end
 end

@@ -4,7 +4,7 @@
 <div class="container my-5">
   <div class="card" style="max-width: 800px; margin: 0 auto;">
    
-    <%= image_link_tag @dish.image %>
+    <%= image_tag @dish.image if @dish.image.persisted? %>
 
     <div class="card-body">
       <h2 class="card-title"><%= @dish.name %></h2>
@@ -15,7 +15,7 @@
         <strong>Price: </strong> $<%= @dish.price %>
       </p>
 
-      <%= link_to 'Back to Dishes', restaurant_dishes_path, class: 'btn btn-secondary' %>
+      <%= render "partials/back_button" %>
     </div>
   </div>
 </div>

@@ -1,4 +1,3 @@
-/* In your app/assets/stylesheets/application.css or a new .css file */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f7fc;
@@ -99,4 +98,51 @@ input[type='submit']:hover {
 
 #error_explanation ul li {
   font-size: 0.9rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.category-options {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+input[type='radio'] {
+  accent-color: #4caf50;
+  cursor: pointer;
+}
+
+.radio-label {
+  cursor: pointer;
+  color: #333;
+}
+
+.radio-label:hover {
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+input[type='radio']:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+input[type='radio']:checked + .radio-label {
+  font-weight: bold;
+  color: #4caf50;
 }
