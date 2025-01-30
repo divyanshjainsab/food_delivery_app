@@ -1,49 +1,56 @@
 #container {
-  background-color: lightblue;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #box {
-  border: 1px solid black;
-  background-color: lightyellow;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 3rem;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 #title {
-  font-size: 2rem;
-  margin: 0;
-  padding: 1rem;
-  font-weight: 900;
-}
-
-ul {
-  list-style: none;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .button {
-  display: block;
-  margin: auto;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 1rem;
-  color: #fff;
-  font-weight: 500;
-  background-color: lightseagreen;
-  margin-top: 1rem;
-  width: max-content;
+  display: inline-block;
+  width: 100%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
   text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.button:active {
-  background-color: red;
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:focus {
+  outline: none;
+}
+
+#box a.button {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#back-button-container {
+  text-align: center;
+  margin-top: 20px;
 }

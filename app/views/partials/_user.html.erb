@@ -1,26 +1,31 @@
 <%= form.fields_for :user do |user| %> 
-    <div>
+    <div class="field">
         <%= user.label :name %>
-        <%= user.text_field :name, required:true %>
+        <%= user.text_field :name, required: true, id: "name" %>
     </div>
-    <div>
+
+    <div class="field">
         <%= user.label :email %>
-        <%= user.email_field :email, required:true %>
+        <%= user.email_field :email, required: true, id: "email" %>
     </div>
-    <div>
+
+    <div class="field">
         <%= user.label :password %>
-        <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true %>
+        <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true, id: "password" %>
     </div>
-    <div>
+
+    <div class="field">
         <%= user.label :password_confirmation %>
-        <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true %>
-    </div>
-    <div>
+        <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true, id: "password_confirmation" %>
+  </div>
+
+    <div class="field">
         <%= user.label :phone %>
-        <%= user.telephone_field :phone, required:true %>
+        <%= user.telephone_field :phone, required: true, id: "phone" %>
     </div>
-    <div>
+
+    <div class="field">
         <%= user.label :address %>
-        <%= user.text_area :address, required:true %>
+        <%= user.text_area :address, required: true, id: "address" %>
     </div>
 <% end %>

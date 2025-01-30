@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag 'restaurant/dishes/index' %>
+<section id="dish-cards">
+    <% @dishes.each do |dish| %>
+        <a href= <%= restaurant_dish_path(dish)%>>
+            <%= render "partials/card", locals: { dish: dish } %>
+        </a>
+    <% end %>
+</section>

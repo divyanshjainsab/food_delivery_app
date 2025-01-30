@@ -17,6 +17,13 @@ class Users::RestaurantsController < ApplicationController
     # after handling user redirect to otp verification
   end
 
+  def index
+    @restaurants = Restaurant.all
+  end
+
+  def show
+    @dishes = Restaurant.find(params[:id]).dishes
+  end
 
   private
   def restaurant_params

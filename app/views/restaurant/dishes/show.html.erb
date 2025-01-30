@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "restaurant/dishes/show" %>
+<%= content_for :title, @dish.name %>
+
+<div class="container my-5">
+  <div class="card" style="max-width: 800px; margin: 0 auto;">
+   
+    <%= image_link_tag @dish.image %>
+
+    <div class="card-body">
+      <h2 class="card-title"><%= @dish.name %></h2>
+
+      <p class="card-text"><%= @dish.description %></p>
+
+      <p class="card-text">
+        <strong>Price: </strong> $<%= @dish.price %>
+      </p>
+
+      <%= link_to 'Back to Dishes', restaurant_dishes_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

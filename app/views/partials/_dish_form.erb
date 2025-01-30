@@ -1,0 +1,59 @@
+<%= stylesheet_link_tag 'partials/dish_form' %>
+
+<div id="form-container">T
+  <%= form_with model: [:restaurant,@dish], local: true do |form| %>
+    <h1>Add a New Dish</h1>
+
+    <% if @dish.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+        <ul>
+          <% @dish.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :dish_name, class: 'form-control', required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :dish_description, class: 'form-control', required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, id: :dish_price, step: 0.01, class: 'form-control', required: true %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :image, "Dish Image" %>
+      <%= form.file_field :image, multiple: false, accept: "image/*", class: 'form-control', required: true %>
+    </div>
+
+    <div class="radio-group">
+      <label>
+          <%= form.radio_button :category, "Veg", checked: true %>
+      Veg
+      </label>
+
+      <% if @restaurant.category == "Non-Veg" %>
+        <label>
+            <%= form.radio_button :category, "Non-Veg"%>
+        Non-Veg
+        </label>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+ <%= render "partials/back_button" %>
+</div>
