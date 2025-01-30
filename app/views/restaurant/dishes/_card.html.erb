@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag 'restaurant/dishes/card' %>
+
+<div id="tile">
+    <div id="image-container">
+        <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="image" id="image">
+    </div>
+    <div id="card-content">
+        <h2 id="dish-title">Cheese Burger</h2>
+        <p id="dish-description">A delicious, juicy burger with melted cheese and all the fixings.</p>
+        <div id="dish-footer">
+            <span id="dish-price">$12.99</span>
+            <%= link_to "Order Now", "#", class: "order-button" %>
+        </div>
+    </div>
+</div>
