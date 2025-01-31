@@ -3,19 +3,25 @@
 <div id="container">
     <div id="box">
         <p id="title"><%= heading %></p>
+
         <%= form_for [:users, model] do |f| %>
-            <%= render partial: 'partials/user', locals: { form: f} %>
+            <!-- Render the common user form fields -->
+            <%= render partial: 'partials/user', locals: { form: f } %>
 
+            <!-- Render the Restaurant form fields if the model is a Restaurant -->
             <% if model.is_a?(Restaurant) %>
-                <%= render partial: 'partials/restaurant', locals: { model: model , form: f} %>
+                <%= render partial: 'partials/restaurant', locals: { model: model, form: f } %>
             <% end %>
 
+            <!-- Render the Rider form fields if the model is a Rider -->
             <% if model.is_a?(Rider) %>
-                <%= render partial: 'partials/rider', locals: { model: model , form: f} %>
+                <%= render partial: 'partials/rider', locals: { model: model, form: f } %>
             <% end %>
 
+            <!-- Submit Button -->
             <%= f.submit 'Submit', id: "submit" %>
-            <%= render  "partials/back_button" %>
+
+            <%= render "partials/back_button" %>
         <% end %>
     </div>
 </div>
