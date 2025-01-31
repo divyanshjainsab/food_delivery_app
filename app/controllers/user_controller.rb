@@ -11,10 +11,11 @@ class UserController < ApplicationController
   end
 
   def signup
+    redirect_to "/" if cookies[:id]
   end
 
   def email_verification
-    redirect_to '/' unless cookies[:temp_id]
+    redirect_to "/" unless cookies[:temp_id]
   end
 
   def verification
@@ -23,7 +24,7 @@ class UserController < ApplicationController
       user.update_column(:verified_tag, true)
       cookies[:temp_id] = nil
       UserMailer.with(user: user).account_creation_confirmation_mail.deliver_now
-      redirect_to '/'
+      redirect_to "/"
     end
   end
 

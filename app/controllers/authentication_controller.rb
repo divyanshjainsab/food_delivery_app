@@ -13,7 +13,7 @@ class AuthenticationController < ApplicationController
       when "Client"
           redirect_to root_path
       when "Restaurant"
-        redirect_to "/restaurant/dishes" 
+        redirect_to "/restaurant/dishes"
       end
     else
       flash[:notice] = "Invalid Email or Password"
@@ -21,10 +21,13 @@ class AuthenticationController < ApplicationController
     end
   end
 
+  def new
+    redirect_to "/" if cookies[:id]
+  end
+
   def logout
     cookies.delete :id
     cookies.delete :role
-    redirect_to '/'
+    redirect_to "/"
   end
-
 end

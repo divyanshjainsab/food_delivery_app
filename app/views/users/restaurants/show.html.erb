@@ -2,7 +2,8 @@
 <section id="dish-cards">
     <% @dishes.each do |dish| %>
         <a href= <%= restaurant_dish_path(dish)%>>
-            <%= render "partials/card", locals: { dish: dish } %>
+            <%= render "partials/card", locals: { dish: dish, role: "Client" } %>
         </a>
     <% end %>
 </section>
+<center><%= render  "partials/back_button" %></center>

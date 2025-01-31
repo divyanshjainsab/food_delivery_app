@@ -10,7 +10,7 @@
         <p id="dish-description"><%= dish.description %></p>
         <div id="dish-footer">
             <span id="dish-price">$<%= dish.price %></span>
-            <%= link_to "Order Now", "#", class: "order-button" %>
+            <%= link_to "Add", "#", class: "order-button" if locals[:role] == "Client"%>
         </div>
     </div>
 </div>

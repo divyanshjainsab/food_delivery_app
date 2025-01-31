@@ -16,7 +16,6 @@ class Restaurant::DishesController < ApplicationController
   end
 
   def create
-    debugger
     dish = Dish.new dish_params.merge(restaurant_id: get_id)
 
     if dish.save
@@ -29,9 +28,12 @@ class Restaurant::DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
+    @rest_id = get_id if get_role == "Restaurant"
+    @role = get_role
   end
 
   def edit
+    @restaurant = Restaurant.find(get_id)
     @dish = Dish.find(params[:id])
   end
 
@@ -54,6 +56,6 @@ class Restaurant::DishesController < ApplicationController
   end
 
   def dish_params
-    params.expect(dish: [:name, :description, :price, :category, :image ])
+    params.expect(dish: [ :name, :description, :price, :category, :image ])
   end
 end
