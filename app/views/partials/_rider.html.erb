@@ -1,14 +1,21 @@
 <%= form.fields_for :model do |m| %> 
-    <div>
-        <%= m.label :driving_licence %>
-        <%= m.text_field :driving_licence %>
-    </div>
-    <div>
-        <%= m.label :vehical_number %>
-        <%= m.text_field :vehical_number, required:true %>
-    </div>
-    <div>
-        <%= m.label :date_of_birth %>
-        <%= m.date_field :date_of_birth, required:true, max: Date.today - 18.year, placeholder: "Date" %>
-    </div>
+  <div class="field">
+    <%= m.label :driving_licence %>
+    <%= m.text_field :driving_licence, 
+        id: "driving_licence", 
+        pattern: "^[A-Z]{2}-\d{2}-\d{4}-\d{6}$",  # For India format
+        title: "Enter a valid driving license number (e.g., DL-12-3456-789012)",
+        required: true %>
+   </div>
+
+
+  <div class="field">
+    <%= m.label :vehical_number %>
+    <%= m.text_field :vehical_number, required: true, id: "vehical_number" %>
+  </div>
+
+  <div class="field">
+    <%= m.label :date_of_birth %>
+    <%= m.date_field :date_of_birth, required: true, max: (Date.today - 18.years).to_s, placeholder: "Date", id: "date_of_birth" %>
+  </div>
 <% end %>

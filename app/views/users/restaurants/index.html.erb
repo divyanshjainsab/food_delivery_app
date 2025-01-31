@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "users/restaurants/index"%>
+
+<div style="display: flex; flex-wrap:wrap">
+    <% @restaurants.each do |hotel| %>
+    <a href= <%= "/restaurants/#{hotel.id}" %>>
+        <div id="tile">
+                <div id="image-container">
+                    <%= image_tag hotel.avatar if hotel.avatar.persisted? %>
+                    <div class="label <%= hotel.category == 'Veg' ? 'veg' : 'non-veg' %>">
+                        <%= hotel.category.capitalize %>
+                    </div>
+                </div>
+                <div id="card-content">
+                    <h2 id="dish-title"><%= hotel.user.name %></h2>
+                </div>
+            </div>
+        </a>
+    <% end %>
+</div>
+<center><%= render  "partials/back_button" %></center>

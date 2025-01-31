@@ -1,19 +1,113 @@
 #container {
-  background-color: lightblue;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #box {
-  border: 1px solid black;
-  background-color: lightyellow;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 3rem;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#inp {
+  margin-bottom: 20px;
+}
+
+#inp label {
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#inp input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#inp input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+#submit {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit:hover {
+  background-color: #45a049;
+}
+
+#submit:focus {
+  outline: none;
+}
+
+#back-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#back-button:hover {
+  background-color: #0056b3;
+}
+
+#back-button:focus {
+  outline: none;
+}
+
+#resend {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#resend a {
+  color: #4caf50;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#resend a:hover {
+  color: #45a049;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  color: #31708f;
+  border: 1px solid #bce8f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
 }

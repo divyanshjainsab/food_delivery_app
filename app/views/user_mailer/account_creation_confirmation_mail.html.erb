@@ -1,4 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        h3 {
+            color: #555;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
 <body>
-    <h1><%= @user.name %>, your account in food.Delivery.app is successfully created!</h1>
-    <h3>This is an email confirmation for same.</h3>
- </body>
+    <div class="container">
+        <h1>Welcome, <%= @user.name %>!</h1>
+        <h3>Your account at <strong>food.Delivery.app</strong> has been successfully created!</h3>
+        <p>Thank you for joining us. We're excited to help you order your favorite meals!</p>
+        <div class="footer">
+            <p>This is a confirmation email for your account creation. If you did not create an account, please contact support immediately.</p>
+        </div>
+    </div>
+</body>
+</html>

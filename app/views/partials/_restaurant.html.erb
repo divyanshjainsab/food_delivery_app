@@ -6,13 +6,17 @@
     <div>
         <%= m.label :category, "Category" %>
         <span>
-            <%= m.radio_button :category, "veg", checked: true %>
+            <%= m.radio_button :category, "Veg", checked: true %>
             <%= m.label :category, "Veg" %>
         </span>
         <span>
-            <%= m.radio_button :category, "non-veg" %>
-            <%= m.label :category, "non-Veg" %>
+            <%= m.radio_button :category, "Non-Veg" %>
+            <%= m.label :category, "Non-Veg" %>
             
         </span>
+    </div>
+    <div class="field">
+        <%= m.label :avatar, "Profile" %>
+        <%= m.file_field :avatar, multiple: false, accept: "image/*", class: 'form-control', required: true %>
     </div>
 <% end %>
