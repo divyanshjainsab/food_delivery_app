@@ -4,7 +4,7 @@
 <div class="container">
   <div class="card" style="max-width: 800px; margin: 0 auto;">
    
-    <%= image_tag @dish.image if @dish.image.persisted? %>
+    <center><%= image_tag @dish.image if @dish.image.persisted? %></center>
 
     <div class="card-body">
       <h2 class="card-title"><%= @dish.name %></h2>
@@ -16,8 +16,10 @@
       </p>
 
       <div style="display: flex; justify-content:space-between; padding: 0 2rem">
-        <%= link_to "Order Now", "#", class: "order-button" if @role == "Client"%>
-        <%= link_to "Edit",edit_restaurant_dish_path(@dish), id: "edit-btn" if @dish.restaurant.id == @rest_id%>
+        <% if @dish.restaurant.id == @rest_id %>
+          <%= link_to "Edit",edit_restaurant_dish_path(@dish), id: "edit-btn" %>
+          <%= button_to "Delete Dish", restaurant_dish_path(@dish), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete, id: "edit-btn", params: { rest_id: @dish.restaurant.id } %>
+        <% end%>  
         <%= render "partials/back_button" %>
       </div>
     </div>

@@ -47,6 +47,13 @@ class Restaurant::DishesController < ApplicationController
     redirect_to restaurant_dish_path(dish)
   end
 
+  def destroy
+    dish = Dish.find(params[:id])
+    dish.destroy 
+    flash[:notice] = "Dish Successfully deleted."
+    redirect_to root_path
+    end
+
   private
   def check_role
     unless get_role == "Restaurant"

@@ -105,3 +105,19 @@ body {
     height: 150px;
   }
 }
+
+#box{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  color: #31708f;
+  border: 1px solid #bce8f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_24_111522) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_01_094755) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -48,10 +48,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_24_111522) do
   end
 
   create_table "dishes", force: :cascade do |t|
-    t.integer "category", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.decimal "price", precision: 5, scale: 2
+    t.decimal "price", precision: 10, scale: 2
+    t.integer "category", null: false
     t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,13 +85,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_24_111522) do
   create_table "users", force: :cascade do |t|
     t.string "entryable_type", null: false
     t.bigint "entryable_id", null: false
-    t.string "name"
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "phone", null: false
     t.text "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.boolean "verified_tag", default: false
     t.index ["entryable_type", "entryable_id"], name: "index_users_on_entryable"
   end

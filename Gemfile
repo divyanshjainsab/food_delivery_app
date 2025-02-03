@@ -69,3 +69,9 @@ gem "jwt", "~> 2.10"
 gem "bcrypt", "~> 3.1"
 
 
+
+gem "stripe", "~> 13.4"
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem "rack-cors", "~> 2.0"

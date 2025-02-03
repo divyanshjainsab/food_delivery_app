@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   get "/restaurants/:id", to: "users/restaurants#show"
 
 
-  # these routes
+  # these routes for payments
+  resources :payments, only: [:new, :create]
+
 end
