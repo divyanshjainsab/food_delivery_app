@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag 'partials/card' %>
+
+<div id="tile">
+    <% dish = locals[:dish] %>
+    <div id="image-container">
+        <%= image_tag dish.image, width: 250, height: 250 if dish.image.persisted? %>
+    </div>
+    <div id="card-content">
+        <h2 id="dish-title"><%= dish.name %></h2>
+            <div id="dish-footer">
+            <span id="dish-price">$<%= dish.price %></span>
+        </div>
+    </div>
+</div>

@@ -1,27 +1,22 @@
 <%= form.fields_for :model do |m| %> 
-<div class="field">
-    <%= m.label :fssai_licence %>
-    <%= m.text_field :fssai_licence, 
-    required: true, 
-    id: "fssai_licence", 
-    pattern: "^(15\\/|100)[0-9]{4,10}$", 
-    title: "FSSAI license must start with '15/' or '100' followed by 4 to 10 digits.",
-    required: true %>
-
-</div>
-    <div class="field">
+    <div>
+        <%= m.label :fssai_licence %>
+        <%= m.text_field :fssai_licence, required:true %>
+    </div>
+    <div>
         <%= m.label :category, "Category" %>
-
-        <div class="radio-group">
-            <label>
-                <%= m.radio_button :category, "veg", checked: true %>
-            Veg
-            </label>
-
-            <label>
-                <%= m.radio_button :category, "non-veg" %>
-            Non-Veg
-            </label>
-        </div>
+        <span>
+            <%= m.radio_button :category, "Veg", checked: true %>
+            <%= m.label :category, "Veg" %>
+        </span>
+        <span>
+            <%= m.radio_button :category, "Non-Veg" %>
+            <%= m.label :category, "Non-Veg" %>
+            
+        </span>
+    </div>
+    <div class="field">
+        <%= m.label :avatar, "Profile" %>
+        <%= m.file_field :avatar, multiple: false, accept: "image/*", class: 'form-control', required: true %>
     </div>
 <% end %>

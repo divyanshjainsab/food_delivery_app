@@ -3,7 +3,6 @@ class User < ApplicationRecord
     delegated_type :entryable, types: %w[ Restaurant Rider Client ]
     has_one :misc, touch: true
 
-
     validates :password, confirmation: true
     validates :name, :email, :phone, :password, :password_confirmation, :address, presence: true
     validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }

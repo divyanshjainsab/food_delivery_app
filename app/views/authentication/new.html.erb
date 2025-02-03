@@ -4,6 +4,9 @@
     <div id="box">
         <p id="title">Login</p>
         <form action="/authentication" method="post">
+        <% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
             <div class="field">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" required>
@@ -15,6 +18,6 @@
             <button type="submit" class="button">Login</button> 
             <%= link_to  "Signup", "/signup", class: "button"%>
         </form>
-        <%= render  "partials/back_button" %>
+        <center style="margin-top: 1rem;"><%= render  "partials/back_button" %></center>
     </div>
 </div>

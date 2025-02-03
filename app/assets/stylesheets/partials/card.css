@@ -1,0 +1,114 @@
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+#tile {
+  width: 100%;
+  max-width: 350px;
+  margin: 20px auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+#image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#card-content {
+  padding: 20px;
+}
+
+#dish-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+#dish-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px;
+}
+
+#dish-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+#dish-price {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.order-button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+  background-color: #45a049;
+}
+
+.order-button:active {
+  background-color: #388e3c;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #tile {
+    max-width: 280px;
+  }
+
+  #image-container {
+    height: 180px;
+  }
+
+  #dish-title {
+    font-size: 18px;
+  }
+
+  #dish-description {
+    font-size: 13px;
+  }
+
+  #dish-footer {
+    font-size: 14px;
+  }
+
+  .order-button {
+    font-size: 12px;
+  }
+}
+
+a {
+  text-decoration: none;
+}

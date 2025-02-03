@@ -1,11 +1,17 @@
 <%= stylesheet_link_tag 'restaurant/dishes/index' %>
 
 <header id="header">
-    <h1>Welcome, <%= @user.name %></h1>
     <h1>Dashboard</h1>
+    <h1>Welcome, <%= @restaurant.user.name %></h1>
     <%= link_to "Add New Dish", new_restaurant_dish_path, id: "addBtn" %>
 </header>
-
+<% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
 <section id="dish-cards">
-    <%= render "restaurant/dishes/card" %>
+    <% @restaurant.dishes.each do |dish| %>
+        <a href= <%= restaurant_dish_path(dish)%>>
+            <%= render "partials/card", locals: { dish: dish} %>
+        </a>
+    <% end %>
 </section>
