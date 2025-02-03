@@ -1,9 +1,12 @@
 <%= stylesheet_link_tag 'restaurant/dishes/index' %>
 <section id="dish-cards">
     <% @dishes.each do |dish| %>
-        <a href= <%= restaurant_dish_path(dish)%>>
-            <%= render "partials/card", locals: { dish: dish, role: "Client" } %>
-        </a>
+        <div id='box'>
+            <a href= <%= restaurant_dish_path(dish)%>>
+                <%= render "partials/card", locals: { dish: dish } %>
+            </a>
+            <center><%= button_to "Buy Now", payments_path, params: {id: dish.id},  class: "order-button"%></center>
+        </div>
     <% end %>
 </section>
 <center><%= render  "partials/back_button" %></center>
