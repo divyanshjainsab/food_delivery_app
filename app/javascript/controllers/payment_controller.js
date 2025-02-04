@@ -6,8 +6,19 @@ export default class extends Controller {
     console.log("Payment controller connected");
   }
 
+  getCookieByName(name) {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match) {
+        return match[2];
+    }
+    return null;
+  } 
+
   redirectToCheckout(event) {
     event.preventDefault();  // Prevent the default button action
+
+    if (this.getCookieByName("role") === null)
+      window.location.href = "/authentication/new";
 
     const dishId = event.currentTarget.getAttribute('data-redirect-dish-id');  
 
