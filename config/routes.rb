@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
 
   # these routes for payments
-  resources :payments, only: [:new, :create]
+  resources :payments, only: [:new, :create ]
 
+  get '/cancel', to: "payments#cancel"
+  get '/success', to: "payments#success"
+  
 end
