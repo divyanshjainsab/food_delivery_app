@@ -9,6 +9,9 @@ export default class extends Controller {
   redirectToCheckout(event) {
     event.preventDefault();  // Prevent the default button action
 
+    if (sessionStorage.getItem("role") == null)
+      window.location.href = "/authentication/new";
+
     const dishId = event.currentTarget.getAttribute('data-redirect-dish-id');  
 
     if (dishId) {
