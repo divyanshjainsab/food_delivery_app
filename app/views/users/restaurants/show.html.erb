@@ -6,10 +6,9 @@
       <%= render "partials/card", locals: { dish: dish } %>
     </a>
     <center>
-    <%= debug(dish.id) %>
-
       <!-- Stimulus Button for Checkout -->
       <button type="button"
+              id="addBtn"
               data-controller="payment"
               data-action="click->payment#redirectToCheckout"
               data-redirect-dish-id="<%= dish.id %>">

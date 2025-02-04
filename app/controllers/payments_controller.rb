@@ -24,4 +24,10 @@ class PaymentsController < ApplicationController
     # Return the session URL as JSON
     render json: { session_url: @session.url }
   end
+
+  def cancel
+  end
+
+  def success
+  end
 end

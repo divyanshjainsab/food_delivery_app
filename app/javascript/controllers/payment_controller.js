@@ -9,10 +9,7 @@ export default class extends Controller {
   redirectToCheckout(event) {
     event.preventDefault();  // Prevent the default button action
 
-    // Get the dish ID from the button's data-redirect-dish-id attribute
     const dishId = event.currentTarget.getAttribute('data-redirect-dish-id');  
-
-    console.log("Dish ID:", dishId);  // Log the dish ID to ensure it's being read
 
     if (dishId) {
       console.log(`Fetching session URL for dish with ID: ${dishId}`);
