@@ -13,12 +13,7 @@ class AuthenticationController < ApplicationController
       prev_path = session[:return_to] 
       session.delete(:return_to)
       redirect_to prev_path
-      # case role
-      # when "Client"
-      #     redirect_to root_path
-      # when "Restaurant"
-      #   redirect_to "/restaurant/dishes"
-      # end
+
     else
       flash[:notice] = "Invalid Email or Password"
       redirect_to new_auth_path
