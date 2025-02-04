@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         price_data: {
-          currency: 'usd',
+          currency: 'inr',
           product_data: {
             name: dish.name,
           },
@@ -16,6 +16,11 @@ class PaymentsController < ApplicationController
         },
         quantity: 1
       }],
+      payment_intent_data: {
+        "metadata":{
+          client_id: get_id
+        }
+      },
       mode: 'payment',
       success_url: "#{request.base_url}/success",  # Full URL for success
       cancel_url: "#{request.base_url}/cancel",   # Full URL for cancel
@@ -29,5 +34,6 @@ class PaymentsController < ApplicationController
   end
 
   def success
+    render html: "Okay"
   end
 end
