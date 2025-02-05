@@ -34,13 +34,9 @@ class AuthenticationController < ApplicationController
     redirect_back(fallback_location:"/")
   end
 
-  private
+  
   def store_location
-    if request.post? || request.put?
-      session[:return_to] = request.env['HTTP_REFERER']
-    else
-      session[:return_to] = request.referer
-    end
+    session[:return_to] = request.referer
   end
   
 end

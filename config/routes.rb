@@ -38,4 +38,7 @@ Rails.application.routes.draw do
   get '/cancel', to: "payments#cancel"
   get '/success', to: "payments#success"
   
+
+  # webhook
+  post '/webhook', to: "webhooks#receive"
 end
