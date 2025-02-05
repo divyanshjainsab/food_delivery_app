@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Status Update</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    p {
+      font-size: 18px;
+    }
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .order-id {
+      font-weight: bold;
+    }
+    .order-status {
+      color: #2ecc71; /* Green color to indicate completion */
+    }
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Order is Processed!</h1>
+    <p>We're happy to inform you that your order has been processed and is ready for the next stage.</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Processed</strong></p>
+    </div>
+
+    <p>Your meal is being prepared or on its way for delivery, depending on your order type.</p>
+
+    <div class="footer">
+      <p>If you have any questions or need assistance, don't hesitate to reach out!</p>
+      <p>Thank you for choosing us. We hope you enjoy your meal!</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -3,6 +3,8 @@ class Restaurant < ApplicationRecord
   # associations
   include Entryable # belongs to user model
   has_many :dishes
+  has_many :orders, through: :dishes
+
 
   # validations
   enum :category, %i[ Veg Non-Veg ]

@@ -46,6 +46,10 @@ class WebhooksController < ApplicationController
       status: payment_intent.status,
       paid_at: Time.at(payment_intent.created)
     )
+
+    # creating a session
+    session[:transaction_id] = payment.payment_intent_id
+
     # Send a confirmation email to the user
     UserMailer.payment_received(client, payment, dish).deliver_now
     Rails.logger.info("Payment succeeded for client #{client.id} with amount #{payment.amount}")
@@ -62,11 +66,15 @@ class WebhooksController < ApplicationController
     payment = Payment.create(
       client: client,
       amount: payment_intent.amount / 100,
-      payment_method: payment_intent.payment_method,
+      payment_method: payment_intent.payment_method || "FAILED TRANSACTION",
       payment_intent_id: payment_intent.id,
       status: payment_intent.status,
       failed_at: Time.at(payment_intent.created)
     )
+
+    # creating a session
+    session[:transaction_id] = payment.payment_intent_id
+
     # Send a failure notification email to the user
     UserMailer.payment_failed(client, payment, dish).deliver_now
     Rails.logger.info("Payment failed for client #{client.id} with amount #{payment.amount}")

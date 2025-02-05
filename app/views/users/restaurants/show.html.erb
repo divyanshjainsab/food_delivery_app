@@ -5,16 +5,18 @@
     <a href="<%= restaurant_dish_path(dish) %>">
       <%= render "partials/card", locals: { dish: dish } %>
     </a>
-    <center>
-      <!-- Stimulus Button for Checkout -->
-      <button type="button"
-              id="addBtn"
-              data-controller="payment"
-              data-action="click->payment#redirectToCheckout"
-              data-redirect-dish-id="<%= dish.id %>">
-        Buy Now
-      </button>
-    </center>
+    <% if @role == "Client" %>
+      <center>
+        <!-- Stimulus Button for Checkout -->
+        <button type="button"
+                id="addBtn"
+                data-controller="payment"
+                data-action="click->payment#redirectToCheckout"
+                data-redirect-dish-id="<%= dish.id %>">
+          Buy Now
+        </button>
+      </center>
+    <% end %>
   </div>
 <% end %>
 

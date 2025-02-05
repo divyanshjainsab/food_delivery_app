@@ -1,0 +1,31 @@
+.container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  h1 {
+    color: #4CAF50; /* Green color indicating success */
+  }
+  p {
+    font-size: 18px;
+  }
+  .order-details {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .order-id {
+    font-weight: bold;
+  }
+  .order-status {
+    color: #2ecc71; /* Green color for order success */
+  }
+  .footer {
+    font-size: 14px;
+    color: #777;
+    margin-top: 30px;
+  }

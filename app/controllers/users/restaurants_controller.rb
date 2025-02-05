@@ -23,6 +23,7 @@ class Users::RestaurantsController < ApplicationController
 
   def show
     @dishes = Restaurant.find(params[:id]).dishes
+    @role = get_role
   end
 
   private

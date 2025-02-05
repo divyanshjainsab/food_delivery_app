@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Failure Notification</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px;">
+  <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <h2 style="color: #FF5733;">Payment Failed</h2>
+    <p>Dear <%= @payment.client.user.name %>,</p>
+    <p>We regret to inform you that your payment for <strong>Dish: <%= @dish.name %></strong> was unsuccessful.</p>
+
+    <h3>Payment Attempt Details:</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Amount Attempted:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.amount %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Payment Method:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.payment_method %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Transaction ID:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.payment_intent_id %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Date of Attempt:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.failed_at %></td>
+      </tr>
+    </table>
+
+    <p>Unfortunately, the payment could not be processed. Please check your payment details or try again with an alternative method.</p>
+    
+    <p>If you believe this is an error or need further assistance, please contact our support team.</p>
+
+    <p>Thank you for your understanding.</p>
+  </div>
+</body>
+</html>

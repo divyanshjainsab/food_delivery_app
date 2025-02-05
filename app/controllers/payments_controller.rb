@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  before_action :validate_request, only: %i[ success cancel ]
+
   def create
     # Find the dish using the id parameter passed in the URL
     dish = Dish.find(params[:id])
@@ -18,11 +20,12 @@ class PaymentsController < ApplicationController
       }],
       payment_intent_data: {
         "metadata":{
-          client_id: get_id
+          client_id: get_id,
+          dish_id: dish.id
         }
       },
       mode: 'payment',
-      success_url: "#{request.base_url}/success",  # Full URL for success
+      success_url: "#{request.base_url}/success/#{Payment.last.payment_intent_id}/#{dish.id}",  # Full URL for success
       cancel_url: "#{request.base_url}/cancel",   # Full URL for cancel
     })
 
@@ -32,8 +35,22 @@ class PaymentsController < ApplicationController
 
   def cancel
   end
-
+  
   def success
-    render html: "Okay"
+    payment = Payment.find_by_payment_intent_id params[:transaction_id]
+    dish = Dish.find(params[:dish_id])
+    @order = Order.new payment: payment, client: payment.client, dish: dish
+    if @order.save
+      UserMailer.order_confirmation(@order).deliver_now
+      RestaurantMailer.received_order_email(@order).deliver_now
+    else
+      render
+    end
+  end
+
+
+  private 
+  def validate_request
+    redirect_to "/404" unless params[:transaction_id] 
   end
 end

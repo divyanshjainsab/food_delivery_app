@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Order Received</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #3498db;
+    }
+    p {
+      font-size: 18px;
+    }
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .order-id {
+      font-weight: bold;
+    }
+    .order-items {
+      margin-top: 20px;
+    }
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>New Order Received!</h1>
+    <p>Hello Team,</p>
+    <p>We have received a new order. Please see the details below:</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p><strong>Customer Name:</strong> <%= @order.client.user.name %></p>
+      <p><strong>Delivery Address:</strong> <%= @order.client.user.address %></p>
+      <p><strong>Phone Number:</strong> <%= @order.client.user.phone %></p>
+    </div>
+
+    <div class="order-items">
+        <h3>Item Ordered:</h3>
+        <%= @order.dish.name %> - Price: <%= @order.dish.price.to_f %>
+    </div>
+
+    <div class="footer">
+      <p>Please ensure to prepare the order and follow up with the delivery details. Thank you for your prompt attention.</p>
+      <p>Best Regards, <br> Your Restaurant Team</p>
+    </div>
+  </div>
+
+</body>
+</html>
