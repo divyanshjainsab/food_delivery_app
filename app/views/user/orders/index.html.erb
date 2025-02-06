@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag 'restaurant/orders/index' %>
+
+<div class="container">
+<h1>All Orders</h1>
+
+<% if flash[:message] %>
+  <div class="flash-message">
+    <p><%= flash[:message] %></p>
+  </div>
+<% end %>
+
+<% if @orders.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Order Status</th>
+        <th>Order Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.status %></td>
+          <td><%= order.created_at.strftime("%B %d, %Y %I:%M %p") %></td>
+          <td class="order-actions">
+            <%= link_to 'Show', user_order_path(order), class: "btn btn-primary" %>
+            <%= link_to 'Cancel Order', user_order_path(order), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to Cancel this order?' }, class: "btn btn-danger" unless  order.status == "Cancelled" || order.status == "Rejected" || order.status == "Delivered"  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No orders have been placed yet.</p>
+<% end %>
+<center>
+  <center><%= render "partials/back_button" %></center>
+  <%== pagy_nav(@pagy) %>
+
+
+  <p>Page <%= @pagy.page %> of <%= @pagy.pages %></p>
+  <p>Total Orders: <%= @pagy.count %></p>
+</center>
+<div class="footer">
+  <p>All orders are displayed here. Please manage them accordingly.</p>
+</div>
+</div>

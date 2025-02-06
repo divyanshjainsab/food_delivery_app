@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Status Update - Prepared</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #f39c12; /* Orange color to represent food readiness */
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-id {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .order-status {
+      color: #f39c12; /* Orange color for prepared status */
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .preparation-time {
+      color: #e67e22; /* Darker orange for preparation time */
+      font-weight: bold;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Order is Prepared and Ready!</h1>
+    <p>Your meal has been carefully prepared and is now ready for the next step. It's almost time to enjoy your delicious food!</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Prepared</strong></p>
+      <p class="preparation-time">Estimated Time: <%= @order.updated_at %> minutes</p>
+    </div>
+
+    <p>Your order is being carefully packed, and you'll be notified once it is out for delivery.</p>
+
+    <div class="footer">
+      <p>If you have any questions or need to make changes to your order, please contact us immediately.</p>
+      <p>Thank you for choosing us! We hope you enjoy your meal shortly!</p>
+    </div>
+  </div>
+
+</body>
+</html>

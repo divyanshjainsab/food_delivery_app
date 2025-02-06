@@ -1,0 +1,70 @@
+.container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2980b9;
+    /* Blue color for header */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.order-summary {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-details {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.order-id,
+.order-status,
+.order-date {
+    font-weight: bold;
+}
+
+.order-items {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.footer {
+    font-size: 14px;
+    color: #777;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.contact-info {
+    color: #2980b9;
+    font-weight: bold;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Status Update</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #3498db; /* Blue color indicating it's on the way */
+    }
+    p {
+      font-size: 18px;
+    }
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .order-id {
+      font-weight: bold;
+    }
+    .order-status {
+      color: #3498db; /* Blue color for out-for-delivery status */
+    }
+    .delivery-partner {
+      color: #2ecc71; /* Green color for delivery partner */
+      font-weight: bold;
+    }
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Order is Out for Delivery!</h1>
+    <p>Exciting news! Your order is now on its way to you. It's out for delivery!</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Out for Delivery</strong></p>
+      <p>If you need to contact the delivery partner, here is their phone number:</p>
+      <p class="delivery-partner">Delivery Partner: <%= @delivery.phone %></p>
+    </div>
+
+    <p>Your meal will arrive shortly. Please be ready to enjoy your delicious order!</p>
+
+    <div class="footer">
+      <p>If you have any questions or need to make changes to your delivery, please contact us immediately.</p>
+      <p>Thank you for choosing us. We hope you enjoy your meal soon!</p>
+    </div>
+  </div>
+
+</body>
+</html>

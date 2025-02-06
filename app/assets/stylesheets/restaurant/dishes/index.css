@@ -40,6 +40,21 @@ body {
   color: white;
 }
 
+#orderBtn {
+  background-color: #fff;
+  color: crimson;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 2px solid crimson;
+  text-decoration: none;
+}
+
+#orderBtn:hover {
+  background-color: crimson;
+  color: white;
+}
+
 #dish-cards {
   display: flex;
   flex-wrap: wrap;

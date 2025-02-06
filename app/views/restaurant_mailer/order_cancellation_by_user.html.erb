@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Cancellation Notice - Restaurant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #e74c3c; /* Red color indicating cancellation */
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-id {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .order-status {
+      color: #e74c3c; /* Red color for cancellation status */
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .restaurant-info {
+      font-weight: bold;
+      color: #2980b9; /* Blue color for restaurant details */
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Order Cancellation Notification</h1>
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Cancelled</strong></p>
+      <p class="restaurant-info">Restaurant: <%= @order.dish.restaurant.user.name %></p>
+    </div>
+
+    <p>This is to inform you that the following order has been cancelled:</p>
+
+    <p><strong>Customer Name:</strong> <%= @order.client.user.name %></p>
+    <p><strong>Customer Phone:</strong> <%= @order.client.user.phone %></p>
+
+    <p>If you have any further questions or need assistance, please don't hesitate to contact the customer directly or reach out to our support team.</p>
+
+    <div class="footer">
+      <p>Thank you for your continued partnership. We appreciate your efforts to provide the best service to our customers.</p>
+      <p>Best regards, <br> The <%= @order.dish.restaurant.user.name %> Team</p>
+    </div>
+  </div>
+
+</body>
+</html>

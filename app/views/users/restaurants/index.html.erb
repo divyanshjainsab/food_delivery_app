@@ -1,5 +1,11 @@
 <%= stylesheet_link_tag "users/restaurants/index"%>
-
+<% if @role == "Client" %>
+    <header id="header">
+        <h1>Dashboard</h1>
+        <h1>Welcome, <%= @client.user.name %></h1>
+        <%= link_to "Orders", user_orders_path, id: "orderBtn" %>
+    </header>
+<% end %>
 <div style="display: flex; flex-wrap:wrap">
     <% @restaurants.each do |hotel| %>
     <a href= <%= "/restaurants/#{hotel.id}" %>>
@@ -11,7 +17,7 @@
                     </div>
                 </div>
                 <div id="card-content">
-                    <h2 id="dish-title"><%= hotel.user.name %></h2>
+                    <h2 id="dish-title"><%= hotel.user.name if hotel.user %></h2>
                 </div>
             </div>
         </a>

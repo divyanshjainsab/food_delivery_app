@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag 'payments/success' %>
+<div class="container">
+    <h1>Order Successfully Placed!</h1>
+    <p>Thank you for your order! We have received it and are processing it right away.</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Order Placed</strong></p>
+    </div>
+
+    <p>We will notify you when your order is ready for delivery or pick-up.</p>
+
+    <div class="footer">
+      <p>If you have any questions or need assistance, please feel free to contact us.</p>
+      <p>Thank you for choosing us! We hope you enjoy your meal.</p>
+    </div>
+  </div>

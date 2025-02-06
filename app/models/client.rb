@@ -3,4 +3,5 @@ class Client < ApplicationRecord
 
   # association
   has_many :payments
+  has_many :orders
 end

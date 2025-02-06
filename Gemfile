@@ -75,3 +75,5 @@ gem "stripe", "~> 13.4"
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem "rack-cors", "~> 2.0"
+
+gem "pagy", "~> 9.3"

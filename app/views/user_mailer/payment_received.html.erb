@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Confirmation</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333; background-color: #f9f9f9; padding: 20px;">
+  <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <h2 style="color: #4CAF50;">Payment Confirmation</h2>
+    <p>Dear <%= @payment.client.user.name %>,</p>
+    <p>We are pleased to inform you that your payment for <strong>Dish: <%= @dish.name %></strong> has been successfully processed.</p>
+
+    <h3>Payment Details:</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Amount Paid:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.amount %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Payment Method:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.payment_method %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Transaction ID:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.payment_intent_id %></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Date of Payment:</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><%= @payment.paid_at %></td>
+      </tr>
+    </table>
+
+    <p>This is Confirmation of the payment. </p>
+  </div>
+</body>
+</html>
