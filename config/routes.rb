@@ -43,8 +43,8 @@ Rails.application.routes.draw do
   get '/cancel', to: "payments#cancel"
   get '/success/:dish_id', to: "payments#success"
   
-  # orders
-  # get "orders", to: 
+  # rider dashboard
+  get "rider/dashboard", to: "users/riders#index"
 
   # webhook
   post '/webhook', to: "webhooks#receive"
