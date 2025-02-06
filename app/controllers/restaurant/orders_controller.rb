@@ -15,9 +15,9 @@ class Restaurant::OrdersController < ApplicationController
     def edit
         order = Order.find(params[:id])
         order.update(status: "Prepared")
+        RestaurantMailer.order_status_update_prepared(order).deliver_now
         flash[:message] = "Order with ID: #{order.id} successfully updated."
         redirect_to restaurant_orders_path 
-        RestaurantMailer.order_status_update_prepared(order).deliver_now
     end
 
     def show
