@@ -1,90 +1,130 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Container for all restaurant tiles */
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for all restaurant tiles */
+#tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Image container for restaurant image */
+#image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+#image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image covers the area without distortion */
+}
+
+/* Category label styling */
+.label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.veg {
+  background-color: #28a745;
+  /* Green for Veg */
+}
+
+.non-veg {
+  background-color: #dc3545;
+  /* Red for Non-Veg */
+}
+
+/* Card content */
+#card-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+#dish-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
   #tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    margin: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  #tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Image container for restaurant image */
-  #image-container {
-    position: relative;
     width: 100%;
-    height: 200px;
-    overflow: hidden;
+    margin: 0.5rem 0;
   }
-  
-  #image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-  }
-  
-  /* Category label styling */
-  .label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 0.5rem 1rem;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .veg {
-    background-color: #28a745; /* Green for Veg */
-  }
-  
-  .non-veg {
-    background-color: #dc3545; /* Red for Non-Veg */
-  }
-  
-  /* Card content */
-  #card-content {
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  #dish-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-top: 0.5rem;
-    text-transform: capitalize;
-  }
-  
-  /* Link styling */
-  a {
-    text-decoration: none;
-  }
-  
-  /* Responsive styling */
-  @media (max-width: 768px) {
-    #tile {
-      width: 100%;
-      margin: 0.5rem 0;
-    }
-  }
-  
+}
+
+
+
+#orderBtn {
+  background-color: #fff;
+  color: crimson;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 2px solid crimson;
+  text-decoration: none;
+}
+
+#orderBtn:hover {
+  background-color: crimson;
+  color: white;
+}
+
+
+#header {
+  background-color: #9eaf4c;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+#header>h1:nth-child(1) {
+  font-weight: 900;
+  color: blueviolet;
+}

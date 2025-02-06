@@ -5,7 +5,7 @@ class Users::RestaurantsController < ApplicationController
 
   def create
     # creating an object of user, with rider_params
-    user = User.new user_params(:restaurant).merge(entryable: (Restaurant.new restaurant_params), misc: Misc.new)
+    user = User.new user_params(:restaurant).merge(entryable: (Restaurant.create restaurant_params), misc: Misc.new)
 
     # appC
     user = user_verification(user)
@@ -18,6 +18,10 @@ class Users::RestaurantsController < ApplicationController
   end
 
   def index
+    @role = get_role
+    if @role == "Client" 
+      @client = Client.find get_id
+    end
     @restaurants = Restaurant.all
   end
 

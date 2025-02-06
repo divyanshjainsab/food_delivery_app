@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :validate_request, only: %i[ success cancel ]
+  # before_action :validate_request, only: %i[ success cancel ]
 
   def create
     # Find the dish using the id parameter passed in the URL
@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
         }
       },
       mode: 'payment',
-      success_url: "#{request.base_url}/success/#{Payment.last.payment_intent_id}/#{dish.id}",  # Full URL for success
+      success_url: "#{request.base_url}/success/#{dish.id}",  # Full URL for success
       cancel_url: "#{request.base_url}/cancel",   # Full URL for cancel
     })
 
@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
   end
   
   def success
-    payment = Payment.find_by_payment_intent_id params[:transaction_id]
+    payment = Payment.last
     dish = Dish.find(params[:dish_id])
     @order = Order.new payment: payment, client: payment.client, dish: dish
     if @order.save

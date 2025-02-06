@@ -72,11 +72,15 @@
 <body>
 
   <div class="container">
-    <h1>As per your request, Order is Cancelled</h1>
+    <h1>Order Cancellation Due to Internal Issues</h1>
+    <p>We regret to inform you that your recent order has been cancelled due to an internal issue at our end. We sincerely apologize for any inconvenience this may have caused.</p>
+
     <div class="order-details">
       <p class="order-id">Order ID: <%= @order.id %></p>
       <p class="order-status">Status: <strong>Cancelled</strong></p>
     </div>
+
+    <p>We understand how important it is to receive your order, and we are working to resolve the issue as quickly as possible. You will not be charged for this order, and we are happy to assist with any further questions or refunds.</p>
 
     <p>If you have any questions, need assistance, or would like to place a new order, please don't hesitate to contact us:</p>
     <p class="contact-info">Contact Us: <%= @order.dish.restaurant.user.phone %></p>

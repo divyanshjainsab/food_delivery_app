@@ -5,7 +5,7 @@ class Users::RidersController < ApplicationController
 
   def create
     # creating an object of user, with rider_params
-    user = User.new user_params(:rider).merge(entryable: (Rider.new rider_params), misc: Misc.new)
+    user = User.new user_params(:rider).merge(entryable: (Rider.create rider_params), misc: Misc.new)
 
     # appC
     user = user_verification(user)

@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   end
   # the above routes are for managing dishes of a restaurant
 
+  namespace "user" do
+    resources :orders
+  end
+
   get "/restaurants", to: "users/restaurants#index"
   get "/restaurants/:id", to: "users/restaurants#show"
 
@@ -37,7 +41,7 @@ Rails.application.routes.draw do
   resources :payments, only: [:new, :create ]
 
   get '/cancel', to: "payments#cancel"
-  get '/success/:transaction_id/:dish_id', to: "payments#success"
+  get '/success/:dish_id', to: "payments#success"
   
   # orders
   # get "orders", to: 

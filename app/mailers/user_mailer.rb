@@ -30,11 +30,6 @@ class UserMailer < ApplicationMailer
     mail(to: @order.client.user.email, subject: "Update on Order status" )
   end
 
-  def order_status_update_prepared(order)
-    @order = order
-    mail(to: @order.client.user.email, subject: "Update on Order status" )
-  end
-
   def order_status_update_delivery(order, delivery)
     @order = order
     @delivery = delivery

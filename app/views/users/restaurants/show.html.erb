@@ -5,7 +5,7 @@
     <a href="<%= restaurant_dish_path(dish) %>">
       <%= render "partials/card", locals: { dish: dish } %>
     </a>
-    <% if @role == "Client" %>
+    <% if @role == "Client" || @role == nil %>
       <center>
         <!-- Stimulus Button for Checkout -->
         <button type="button"

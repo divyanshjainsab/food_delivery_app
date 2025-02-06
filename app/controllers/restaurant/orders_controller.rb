@@ -17,13 +17,17 @@ class Restaurant::OrdersController < ApplicationController
         order.update(status: "Prepared")
         flash[:message] = "Order with ID: #{order.id} successfully updated."
         redirect_to restaurant_orders_path 
-        UserMailer.order_status_update_prepared(order).deliver_now
+        RestaurantMailer.order_status_update_prepared(order).deliver_now
+    end
+
+    def show
+        @order = Order.find params[:id]
     end
     
     def destroy
         order = Order.find(params[:id])
         order.update(status: "Cancelled")
-        UserMailer.order_cancellation(order).deliver_now
+        RestaurantMailer.order_cancellation(order).deliver_now
         flash[:message] = "Order with ID: #{order.id} successfully Cancelled."
         redirect_to restaurant_orders_path 
     end

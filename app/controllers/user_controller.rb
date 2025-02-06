@@ -25,6 +25,9 @@ class UserController < ApplicationController
       cookies[:temp_id] = nil
       UserMailer.with(user: user).account_creation_confirmation_mail.deliver_now
       redirect_to "/"
+    else
+      flash[:notice] = "Invalid OTP"
+      redirect_to verify_path
     end
   end
 
