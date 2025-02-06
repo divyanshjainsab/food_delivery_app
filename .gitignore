@@ -1,0 +1,10 @@
+.gitattributes
+.github/
+.kamal/
+node_modules/
+spec/
+.env
+stripe
+storage
+tmp
+.prettierrc.yml
