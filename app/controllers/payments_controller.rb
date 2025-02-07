@@ -40,14 +40,14 @@ class PaymentsController < ApplicationController
     payment = Payment.last
     dish = Dish.find(params[:dish_id])
     @order = Order.new payment: payment, client: payment.client, dish: dish
-    if @order.save!
+    if @order.save
       UserMailer.order_confirmation(@order).deliver_now
       RestaurantMailer.received_order_email(@order).deliver_now
 
       # cancel order in 2 minutes if not prepared or dispatched
       CancelOrderIfNoRidersAssignedJob.set(wait: 2.minutes).perform_later @order
     else
-      render
+      redirect_to root_path
     end
   end
 

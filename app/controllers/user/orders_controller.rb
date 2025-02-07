@@ -1,4 +1,7 @@
 class User::OrdersController < ApplicationController
+    before_action :check_role
+    before_action :check_access, only: [ :show, :destory]
+
     include Pagy::Backend   
 
     def index
@@ -23,5 +26,12 @@ class User::OrdersController < ApplicationController
     private
     def check_access(order)
         redirect_to user_orders_path if get_id != order.client.id
+    end
+
+    def check_role
+        unless get_role == "Client"
+            flash[:notice] = "Login first!"
+            redirect_to new_auth_path 
+        end
     end
 end

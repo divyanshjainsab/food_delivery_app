@@ -76,19 +76,19 @@
     <div class="order-details">
       <p class="order-id">Order ID: <%= @order.id %></p>
       <p class="order-status">Status: <strong>Cancelled</strong></p>
-      <p class="restaurant-info">Restaurant: <%= @order.dish.restaurant.user.name %></p>
+      <p class="restaurant-info">Restaurant: <%= @order.dish.restaurant.name %></p>
     </div>
 
     <p>This is to inform you that the following order has been cancelled:</p>
 
-    <p><strong>Customer Name:</strong> <%= @order.client.user.name %></p>
-    <p><strong>Customer Phone:</strong> <%= @order.client.user.phone %></p>
+    <p><strong>Customer Name:</strong> <%= @order.client.name %></p>
+    <p><strong>Customer Phone:</strong> <%= @order.client.phone %></p>
 
     <p>If you have any further questions or need assistance, please don't hesitate to contact the customer directly or reach out to our support team.</p>
 
     <div class="footer">
       <p>Thank you for your continued partnership. We appreciate your efforts to provide the best service to our customers.</p>
-      <p>Best regards, <br> The <%= @order.dish.restaurant.user.name %> Team</p>
+      <p>Best regards, <br> The food.Delivery.app Team</p>
     </div>
   </div>
 

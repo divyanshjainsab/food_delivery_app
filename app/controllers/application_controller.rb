@@ -20,13 +20,11 @@ class ApplicationController < ActionController::Base
     params.require(model).require(:user).permit(%i[name password password_confirmation email phone address])
   end
 
-
-
   def send_otp(user)
     # genrating otp to send via mail
     otp = rand(100000 .. 999999)
     # we send mail immediatly after object creation
-    UserMailer.with(user: user, otp: otp).account_creation_verification_mail.deliver_now
+    UserMailer.account_creation_verification_mail(user: user, otp: otp).deliver_now
     # update otp in user misc
     user.misc.update! otp: otp
 
@@ -43,32 +41,46 @@ class ApplicationController < ActionController::Base
     user.email = user.email.downcase
 
     # check for user existance
-    if User.find_by(email: user.email)
-      if user.verified_tag
+    db_user = User.find_by_email user.email
+
+    # if user in db found
+    if db_user
+      if db_user.verified_tag
         flash[:notice] = "Account Already Exists"
         redirect_to new_auth_path
       else
-        # update the existing record in db
-        User.find_by(email: user.email).destroy
-        user.save!
-        # as_json is used in order to convert obj to hash
+        # now the user is present in db but still not verified to we can save both records by skipping validations
+        user.email = "testemailinordertoskipduplicateemailerror@timpass.org"
+
+        save_user user
+        user.update_column!(email: db_user.email)
+        # now there are more than one user with same email, but they all are unverified
       end
     # as that wasn't existing, handle that as fresh
     else
-      user.entryable.save
-      user.save!
+      save_user user
     end
-    cookies[:temp_id] = user.id
+
+    # creating a session to verify user
+    session[:temp_id] = user.id
     # returning user
     user
   end
 
-  protected
   def get_role
     decoded_token(cookies[:role])[0] if cookies[:role]
   end
 
   def get_id
     decoded_token(cookies[:id])[0] if cookies[:id]
+  end
+
+  private
+  def save_user(user)
+    if user.valid?
+      if user.entryable.save! 
+        user.save!
+      end
+    end
   end
 end

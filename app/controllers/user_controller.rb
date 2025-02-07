@@ -6,25 +6,26 @@ class UserController < ApplicationController
     when "Restaurant"
       redirect_to restaurant_dishes_path
     when "Rider"
-      # lets see
+      redirect_to rider_dashboard_path
     end
   end
 
   def signup
-    redirect_to "/" if cookies[:id]
+    redirect_to root_path if cookies[:id]
   end
 
   def email_verification
-    redirect_to "/" unless cookies[:temp_id]
+    redirect_to root_path unless session[:temp_id]
   end
 
   def verification
-    user = User.find(cookies[:temp_id])
+    user = User.unscoped.find(session[:temp_id])
     if user.misc.otp == params[:otp].to_i
       user.update_column(:verified_tag, true)
-      cookies[:temp_id] = nil
-      UserMailer.with(user: user).account_creation_confirmation_mail.deliver_now
-      redirect_to "/"
+      session.delete :temp_id
+      flash[:notice] = "#{user.entryable_type} successfully created."
+      UserMailer.account_creation_confirmation_mail(user).deliver_now
+      redirect_to root_path
     else
       flash[:notice] = "Invalid OTP"
       redirect_to verify_path
@@ -33,6 +34,6 @@ class UserController < ApplicationController
 
   def resend_otp
     flash[:notice] = "OTP has been resent to your email."
-    send_otp User.find(cookies[:temp_id])
+    send_otp User.unscoped.find session[:temp_id]
   end
 end

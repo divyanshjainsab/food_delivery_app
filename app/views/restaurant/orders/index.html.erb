@@ -24,7 +24,7 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= order.id %></td>
-          <td><%= order.client.user.name %></td>
+          <td><%= order.client.name %></td>
           <td><%= order.status %></td>
           <td><%= order.created_at.strftime("%B %d, %Y %I:%M %p") %></td>
           <td class="order-actions">
