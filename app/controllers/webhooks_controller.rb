@@ -9,6 +9,8 @@ class WebhooksController < ApplicationController
     # Construct Stripe event object from the request params
     event = Stripe::Event.construct_from(params.to_unsafe_h)
 
+    session[:authO] = true
+
     # Handle the event based on its type
     begin
       case event.type
