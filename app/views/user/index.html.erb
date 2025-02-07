@@ -1,5 +1,7 @@
 <%= stylesheet_link_tag 'user/index' %>
-
+<% if flash[:notice] %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
 <div id="container">
     <% if cookies[:id] %>
         <div id="box">

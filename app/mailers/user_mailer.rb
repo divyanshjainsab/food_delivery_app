@@ -1,13 +1,13 @@
 class UserMailer < ApplicationMailer
   
-  def account_creation_verification_mail
-    @otp = params[:otp]
-    @user = params[:user]
+  def account_creation_verification_mail(user, otp)
+    @otp = otp
+    @user = user
     mail(to: @user.email, subject: "Account creation request @ food.Delivery.com" )
   end
 
-  def account_creation_confirmation_mail
-    @user = params[:user]
+  def account_creation_confirmation_mail(user)
+    @user = user
     mail(to: @user.email, subject: "Your account is successfully created with role of #{@user.entryable_type}" )
   end
 
@@ -15,29 +15,29 @@ class UserMailer < ApplicationMailer
     @client = client
     @payment = payment
     @dish = dish
-    mail(to: @client.user.email, subject: "Update on the Payment status" )
+    mail(to: @client.email, subject: "Update on the Payment status" )
   end
 
   def payment_failed(client, payment, dish)
     @client = client
     @payment = payment
     @dish = dish
-    mail(to: @client.user.email, subject: "Update on the Payment status" )
+    mail(to: @client.email, subject: "Update on the Payment status" )
   end
   
   def order_confirmation(order)
     @order = order
-    mail(to: @order.client.user.email, subject: "Update on Order status" )
+    mail(to: @order.client.email, subject: "Update on Order status" )
   end
 
   def order_status_update_delivery(order, delivery)
     @order = order
     @delivery = delivery
-    mail(to: @order.client.user.email, subject: "Delivery Update" )
+    mail(to: @order.client.email, subject: "Delivery Update" )
   end
 
   def order_cancellation(order)
     @order = order
-    mail(to: @order.client.user.email, subject: "Order Cancelled." )
+    mail(to: @order.client.email, subject: "Order Cancelled." )
     end
 end
