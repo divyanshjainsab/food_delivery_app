@@ -3,7 +3,9 @@
 <div id="container">
     <div id="box">
         <p id="title"><%= heading %></p>
-
+        <% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
         <%= form_for [:users, model] do |f| %>
             <!-- Render the common user form fields -->
             <%= render partial: 'partials/user', locals: { form: f } %>

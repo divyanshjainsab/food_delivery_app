@@ -10,4 +10,7 @@ class User < ApplicationRecord
             length: { minimum: 8 },
             if: -> { new_record? || !password.nil? }
     validates :verified_tag, presence: false
+
+    default_scope { where(verified_tag: true)}
+
 end

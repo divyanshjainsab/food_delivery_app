@@ -1,31 +1,36 @@
 <%= form.fields_for :user do |user| %> 
     <div class="field">
         <%= user.label :name %>
-        <%= user.text_field :name, required: true, id: "name" %>
+        <%= user.text_field :name, required: true, id: "name", placeholder: "Name"  %>
     </div>
 
     <div class="field">
         <%= user.label :email %>
-        <%= user.email_field :email, required: true, id: "email" %>
+        <%= user.email_field :email, required: true, id: "email", placeholder: "abc@abc.com"  %>
     </div>
 
     <div class="field">
         <%= user.label :password %>
-        <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true, id: "password" %>
+        <%= user.password_field :password, autocomplete: "off", minlength: "8", required: true, id: "password", placeholder: "Password"  %>
     </div>
 
     <div class="field">
         <%= user.label :password_confirmation %>
-        <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true, id: "password_confirmation" %>
+        <%= user.password_field :password_confirmation, autocomplete: "off", minlength: "8", required: true, id: "password_confirmation", placeholder: "Password Confirmation"  %>
   </div>
 
     <div class="field">
         <%= user.label :phone %>
-        <%= user.telephone_field :phone, required: true, id: "phone" %>
+        <%= user.telephone_field :phone, 
+            required: true, 
+            id: "phone", 
+            pattern: "^\+91-\d{10}$", 
+            title: "Enter a valid phone number in the format: +91-XXXXXXXXXX", 
+            placeholder: "+91-1234567890" %>
     </div>
 
     <div class="field">
         <%= user.label :address %>
-        <%= user.text_area :address, required: true, id: "address" %>
+        <%= user.text_area :address, required: true, id: "address", minlength: "24", placeholder: "Please provide a detailed address with at least 24 characters." %>
     </div>
 <% end %>
