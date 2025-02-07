@@ -7,4 +7,5 @@ spec/
 stripe
 storage
 tmp
+log/
 .prettierrc.yml

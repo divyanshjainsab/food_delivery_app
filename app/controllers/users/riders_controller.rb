@@ -17,6 +17,10 @@ class Users::RidersController < ApplicationController
     # after handling user redirect to otp verification
   end
 
+  def index
+    @orders = Order.Prepared
+  end
+
   private
    def rider_params
     params.require(:rider).require(:model).permit(%i[driving_licence vehical_number date_of_birth])

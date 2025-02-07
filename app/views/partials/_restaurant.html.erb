@@ -1,7 +1,12 @@
 <%= form.fields_for :model do |m| %> 
-    <div>
+    <div class="field">
         <%= m.label :fssai_licence %>
-        <%= m.text_field :fssai_licence, required:true %>
+        <%= m.text_field :fssai_licence, 
+            id: "fssai_licence", 
+            pattern: "^(15\\/|100)[0-9]{4,10}$", 
+            title: "Enter a valid FSSAI license number (e.g., 15/1234 or 1001234)", 
+            required: true, 
+            placeholder: "15/1234" %>
     </div>
     <div>
         <%= m.label :category, "Category" %>
@@ -12,11 +17,11 @@
         <span>
             <%= m.radio_button :category, "Non-Veg" %>
             <%= m.label :category, "Non-Veg" %>
-            
         </span>
     </div>
     <div class="field">
         <%= m.label :avatar, "Profile" %>
         <%= m.file_field :avatar, multiple: false, accept: "image/*", class: 'form-control', required: true %>
+        <div id="error-message" style="color: red; display: none;">Please select a valid image file.</div>
     </div>
 <% end %>
