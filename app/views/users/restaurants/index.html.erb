@@ -13,6 +13,20 @@
                 </div>
                 <div id="card-content">
                     <h2 id="dish-title"><%= hotel.name if hotel %></h2>
+                    <h2 class="average-rating">
+                    <%= hotel.reviews.average(:rating).to_f %> 
+                        <span class="stars">
+                            <% (1..5).each do |i| %>
+                                <% if hotel.reviews.average(:rating).to_f >= i %>
+                                    &#9733; <!-- Full star -->
+                                <% elsif hotel.reviews.average(:rating).to_f >= (i - 0.5) %>
+                                    &#9734; <!-- Half star -->
+                                <% else %>
+                                    &#9734; <!-- Empty star -->
+                                <% end %>
+                            <% end %>
+                        </span>
+                    </h2>
                 </div>
             </div>
         </a>

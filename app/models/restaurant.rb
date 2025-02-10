@@ -4,7 +4,7 @@ class Restaurant < ApplicationRecord
   include Entryable # belongs to user model
   has_many :dishes
   has_many :orders, through: :dishes
-  has_one :review
+  has_many :reviews
 
   # validations
   enum :category, %i[ Veg Non-Veg ]
