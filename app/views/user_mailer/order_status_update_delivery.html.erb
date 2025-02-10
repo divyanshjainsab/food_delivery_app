@@ -42,6 +42,20 @@
       color: #2ecc71; /* Green color for delivery partner */
       font-weight: bold;
     }
+    .otp-section {
+      background-color: #f1f8e9;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    .otp-section h3 {
+      color: #f39c12; /* Orange color for OTP */
+    }
+    .otp-code {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e67e22;
+    }
     .footer {
       font-size: 14px;
       color: #777;
@@ -60,6 +74,12 @@
       <p class="order-status">Status: <strong>Out for Delivery</strong></p>
       <p>If you need to contact the delivery partner, here is their phone number:</p>
       <p class="delivery-partner">Delivery Partner: <%= @delivery.phone %></p>
+    </div>
+    
+    <div class="otp-section">
+      <h3>Your OTP for Delivery Confirmation</h3>
+      <p class="otp-code"><%= @otp %></p> <!-- Displaying OTP -->
+      <p>Please share this OTP with dei partner to confirm your order delivery.</p>
     </div>
 
     <p>Your meal will arrive shortly. Please be ready to enjoy your delicious order!</p>
