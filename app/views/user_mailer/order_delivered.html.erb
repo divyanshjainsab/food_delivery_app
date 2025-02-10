@@ -79,7 +79,7 @@
     <div class="rating-section">
       <p>Your feedback is important to us!</p>
       <p>Please take a moment to rate your experience with us.</p>
-      <p><a href="<%= "/reviews/new?pid=#{@order.payment.payment_intent_id}" %>">Click here to rate your order and provide feedback</a></p> 
+      <p><a href="<%= "/reviews/new?pid=#{@order.payment.payment_intent_id}&r_id=#{@order.dish.restaurant.id}" %>">Click here to rate your order and provide feedback</a></p> 
     </div>
 
     <div class="footer">

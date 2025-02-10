@@ -81,6 +81,7 @@ class ApplicationController < ActionController::Base
   private
   def save_user(user)
     if user.valid?
+      debugger
       if user.entryable.save! 
         user.save!
       end

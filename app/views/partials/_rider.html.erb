@@ -3,7 +3,7 @@
     <%= m.label :driving_licence %>
     <%= m.text_field :driving_licence, 
         id: "driving_licence", 
-        pattern: "^[A-Z]{2}-\d{2}-\d{4}-\d{6}$", 
+        pattern: "^[A-Z]{2}-\\d{2}-\\d{4}-\\d{6}$", 
         title: "Enter a valid driving license number (e.g., DL-12-3456-789012)",
         required: true,
         placeholder: "License ex: DL-12-3456-789012" %>
@@ -14,7 +14,7 @@
     <%= m.label :vehical_number %>
     <%= m.text_field :vehical_number, 
         id: "vehical_number", 
-        pattern: "^[A-Z]{2}-\d{2}-[A-Z]{2}-\d{4}$", 
+        pattern: "^[A-Z]{2}-\\d{2}-[A-Z]{2}-\\d{4}$", 
         title: "Enter a valid vehicle number (e.g., DL-12-AB-1234)",
         required: true,
         placeholder: "Vehicle ex: DL-12-AB-1234" %>

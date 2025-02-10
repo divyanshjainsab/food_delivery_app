@@ -1,5 +1,6 @@
 class Users::RidersController < ApplicationController
   before_action :check_access
+  skip_before_action :check_access, only: [ :new, :create ]
   def new
     @rider = Rider.new
   end
@@ -13,7 +14,7 @@ class Users::RidersController < ApplicationController
     # mail send to user
 
     # appC
-    delivery_ user
+    send_otp user
 
     # after handling user redirect to otp verification
   end
@@ -81,7 +82,7 @@ class Users::RidersController < ApplicationController
 
   private
    def rider_params
-    params.require(:rider).require(:model).permit(%i[driving_licence vehical_number date_of_birth])
+    params.require(:rider).require(:model).permit(%i[ driving_licence vehical_number date_of_birth ])
    end
 
    def check_access
