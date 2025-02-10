@@ -55,7 +55,9 @@ Rails.application.routes.draw do
   # assign order to rider
   post "/rider/pick/:order_id", to: "users/riders#pick_order"
 
-  
+
+  # rating section
+  resource :reviews, only: [ :new, :create ]
 
   # webhook
   post '/webhook', to: "webhooks#receive"

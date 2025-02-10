@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'reviews/new' %>
+
+<%= form_with model: @review, class: "review-form" do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Review Title", class: "form-label" %>
+    <%= f.text_field :title, class: "form-input", placeholder: "Enter review title", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, "Review Description", class: "form-label" %>
+    <%= f.text_area :description, class: "form-textarea", placeholder: "Enter your detailed review", required: true, minlength: "24", title: "Please provide a detailed address with at least 24 characters."  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rating, "Rating (1 to 5)", class: "form-label" %>
+    <%= f.number_field :rating, class: "form-input", min: 1, max: 5, step: 0.1, pattern: "^[1-5]{1}$", placeholder: "Rating", required: true, title: "Rating lies between 1 to 5" %>
+  </div>
+
+  <%= f.hidden_field :restaurant_id, value: @rid %>
+
+  <div class="form-group submit-group">
+    <%= f.submit "Add Review", class: "submit-btn" %>
+  </div>
+<% end %>

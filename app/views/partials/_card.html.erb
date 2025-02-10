@@ -4,6 +4,9 @@
     <% dish = locals[:dish] %>
     <div id="image-container">
         <%= image_tag dish.image, width: 250, height: 250 if dish.image.persisted? %>
+        <div class="label <%= dish.category == 'Veg' ? 'veg' : 'non-veg' %>">
+            <%= dish.category %>
+            </div>
     </div>
     <div id="card-content">
         <h2 id="dish-title"><%= dish.name %></h2>

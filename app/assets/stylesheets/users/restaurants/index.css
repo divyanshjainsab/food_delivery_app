@@ -128,3 +128,21 @@ a {
   font-weight: 900;
   color: blueviolet;
 }
+
+.average-rating {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FF6347;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #FF6347;
+  border-radius: 8px;
+  background-color: #FFF0F5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+  font-size: 20px;  /* Adjust size of the stars */
+  color: #FFD700;  /* Gold color for stars */
+}

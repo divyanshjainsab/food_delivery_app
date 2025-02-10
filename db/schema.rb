@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_06_111213) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_10_135722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -97,6 +97,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_06_111213) do
     t.string "fssai_licence", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.string "title", null: false
+    t.text "description", null: false
+    t.float "rating", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "client_id"
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   end
 
   create_table "riders", force: :cascade do |t|
