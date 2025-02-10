@@ -30,12 +30,19 @@ class UserMailer < ApplicationMailer
     mail(to: @order.client.email, subject: "Update on Order status" )
   end
 
-  def order_status_update_delivery(order, delivery)
+  def order_status_update_delivery(order, otp, delivery)
     @order = order
     @delivery = delivery
+    @otp = otp
     mail(to: @order.client.email, subject: "Delivery Update" )
   end
 
+  def order_delivered(order, email, rider)
+    @order = order
+    @rider = rider
+    mail(to: email, subject: "Delivery Update" )
+  end
+  
   def order_cancellation(order)
     @order = order
     mail(to: @order.client.email, subject: "Order Cancelled." )

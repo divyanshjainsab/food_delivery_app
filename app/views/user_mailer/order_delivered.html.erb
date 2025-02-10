@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Status Update</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #2ecc71; /* Green color indicating delivered status */
+    }
+    p {
+      font-size: 18px;
+    }
+    .order-details {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .order-id {
+      font-weight: bold;
+    }
+    .order-status {
+      color: #2ecc71; /* Green color for delivered status */
+    }
+    .delivery-partner {
+      color: #3498db; /* Blue color for delivery partner */
+      font-weight: bold;
+    }
+    .footer {
+      font-size: 14px;
+      color: #777;
+      margin-top: 30px;
+    }
+    .rating-section {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .rating-section a {
+      color: #3498db; /* Blue color for the link */
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Order Has Been Delivered!</h1>
+    <p>Great news! Your order has been successfully delivered to you!</p>
+
+    <div class="order-details">
+      <p class="order-id">Order ID: <%= @order.id %></p>
+      <p class="order-status">Status: <strong>Delivered</strong></p>
+      <p>If you need to contact the delivery partner for any reason, here are their details:</p>
+      <p class="delivery-partner">Delivery Partner: <%= @rider.phone %></p>
+    </div>
+
+    <p>We hope you are enjoying your order! If you have any issues or feedback, feel free to reach out to us.</p>
+
+    <div class="rating-section">
+      <p>Your feedback is important to us!</p>
+      <p>Please take a moment to rate your experience with us.</p>
+      <p><a href="<%= "/rating/new?pid=#{@order.payment.payment_intent_id}" %>">Click here to rate your order and provide feedback</a></p> 
+    </div>
+
+    <div class="footer">
+      <p>Thank you for choosing us. We look forward to serving you again soon!</p>
+    </div>
+  </div>
+
+</body>
+</html>

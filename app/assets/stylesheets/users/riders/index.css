@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pickup Section */
+.pickup-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pickup-section h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.orders-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-card {
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-info h3 {
+    font-size: 20px;
+    color: #333;
+}
+
+.order-info p {
+    font-size: 16px;
+    color: #666;
+}
+
+.pickup-button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pickup-button:hover {
+    background-color: #45a049;
+}
+
+/* Deliver Section */
+ul.orders-list {
+    padding: 20px;
+}
+
+.order-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 22px;
+    color: #333;
+}
+
+.section {
+    margin-bottom: 15px;
+}
+
+.section h3 {
+    font-size: 18px;
+    color: #444;
+}
+
+.number {
+    font-size: 16px;
+    color: #555;
+}
+
+.deliver-button {
+    padding: 10px 15px;
+    background-color: #FF6347;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.deliver-button:hover {
+    background-color: #e55347;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  color: #31708f;
+  border: 1px solid #bce8f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+

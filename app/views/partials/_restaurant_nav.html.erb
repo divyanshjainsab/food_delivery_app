@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag 'partials/nav' %>
+<header id="header">
+    <h1>Dashboard</h1>
+    <h1>Welcome, <%= @restaurant.name %></h1>
+    <div>
+        <%= link_to "Add New Dish", new_restaurant_dish_path, id: "addBtn" %>
+        <%= link_to "Orders", restaurant_orders_path, id: "orderBtn" %>
+    </div>
+</header>

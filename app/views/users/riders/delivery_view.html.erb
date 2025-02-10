@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag 'user/email_verification' %>
+<div id="container">
+    <div id="box">
+        <% if flash[:notice] %>
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
+        <%= form_with url: "/deliver", method: :post, local: true do |f| %>
+            <h1 id="title">OTP Verification</h1>
+            <div id="inp">
+                <%= f.label :otp, "Enter OTP" %>
+                <%= f.number_field :otp, required: true, min: 100000, max: 999999, placeholder: "6-digit OTP" %>
+            </div>
+            <%= f.submit "Deliver", id: "submit" %>
+        <% end %>
+        <div id="resend">
+            <%= link_to 'Resend OTP', "/resend_delivery_otp", id: 'resend_otp' %>
+        </div>
+        <%= render  "partials/back_button" %>
+    </div>
+</div>

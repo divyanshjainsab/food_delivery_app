@@ -24,7 +24,7 @@ class UserController < ApplicationController
       user.update_column(:verified_tag, true)
       session.delete :temp_id
       flash[:notice] = "#{user.entryable_type} successfully created."
-      UserMailer.account_creation_confirmation_mail(user).deliver_now
+    UserMailer.account_creation_confirmation_mail(user).deliver_now
       redirect_to root_path
     else
       flash[:notice] = "Invalid OTP"

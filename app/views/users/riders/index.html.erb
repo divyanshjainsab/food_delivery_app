@@ -1,8 +1,41 @@
-<ul>
-    <% @orders.each do |order| %>
-        <li>
-            <%= order.id%>
-            <%= link_to %>
+<%= stylesheet_link_tag "users/riders/index"%>
+
+<% if flash[:notice] %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
+
+<%# If rider has any orders that are out for delivery, he can't see the rest Available orders %>
+<% if @rider.status == "Available"%>
+    <div class = 'pickup-section'>
+        <h2> Available Orders to Pick Up </h2>
+        <ul class="orders-list">
+            <% @orders.each do |order| %>
+                <li class="order-card">
+                    <div class="order-info">
+                        <h3><%= order.dish.restaurant.name %></h3>
+                        <p><%= order.dish.name %></p>
+                        <%= button_to "Pick Up", "/rider/pick/#{order.id}", method: :post, class: "pickup-button" %>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+<% else %>
+    <ul class="orders-list">
+        <li class="order-card">
+            <h2> Order to Deliver </h2>
+            <div class="section">
+                <h3>Client Name</h3>
+                <p class="number"><%= @order.client.name %></p>
+            </div>
+            <div class="section">
+                <h3>Location</h3>
+                <p class="number"><%= @order.client.address %></p>
+            </div>
+            <div class="section">
+                <h3>Contact Number</h3>
+                <p class="number"><%= @order.client.phone %></p>
+            </div>
+            <%= link_to "Deliver Now","/delivery", class: "deliver-button" %>
         </li>
-    <% end %>
-</ul>
+    </ul>
+<% end %>

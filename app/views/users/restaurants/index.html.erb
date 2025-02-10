@@ -1,11 +1,6 @@
 <%= stylesheet_link_tag "users/restaurants/index"%>
-<% if @role == "Client" %>
-    <header id="header">
-        <h1>Dashboard</h1>
-        <h1>Welcome, <%= @client.name %></h1>
-        <%= link_to "Orders", user_orders_path, id: "orderBtn" %>
-    </header>
-<% end %>
+<%= render "partials/user_nav" %>
+
 <div style="display: flex; flex-wrap:wrap">
     <% @restaurants.each do |hotel| %>
     <a href= <%= "/restaurants/#{hotel.id}" %>>

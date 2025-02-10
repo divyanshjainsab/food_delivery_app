@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   post "/verify", to: "user#verification"
   get "resend_otp", to: "user#resend_otp"
 
+  # otp verification for delivery
+  get "resend_delivery_otp", to: "users/riders#resend_delivery_otp"
+  get "/delivery", to: "users/riders#delivery_view"
+  post "/deliver", to: "users/riders#delivery"
+
+
   # logout
   get "/logout", to: "authentication#logout", as: "auth"
 
@@ -44,7 +50,12 @@ Rails.application.routes.draw do
   get '/success/:dish_id', to: "payments#success"
   
   # rider dashboard
-  get "rider/dashboard", to: "users/riders#index"
+  get "/rider/dashboard", to: "users/riders#index"
+
+  # assign order to rider
+  post "/rider/pick/:order_id", to: "users/riders#pick_order"
+
+  
 
   # webhook
   post '/webhook', to: "webhooks#receive"
