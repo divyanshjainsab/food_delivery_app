@@ -85,11 +85,11 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    username: <%= ENV[DB_USERNAME] %>
-    database: <%= ENV[DB_NAME] %>
-    password: <%= ENV[DB_PASSWORD] %>
-    host: <%= ENV[DB_HOST] %>
-    port: <%= ENV[DB_PORT] %>
+    username: <%= ENV['DB_USERNAME'] %>
+    database: <%= ENV['DB_NAME'] %>
+    password: <%= ENV['DB_PASSWORD'] %>
+    host: <%= ENV['DB_HOST'] %>
+    port: <%= ENV['DB_PORT'] %>
   cache:
     <<: *primary_production
     migrations_paths: db/cache_migrate
