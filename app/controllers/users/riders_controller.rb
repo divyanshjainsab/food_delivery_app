@@ -14,14 +14,14 @@ class Users::RidersController < ApplicationController
     # mail send to user
 
     # appC
-    send_otp user
+    send_otp user if user
 
     # after handling user redirect to otp verification
   end
 
   def index
     @rider = Rider.find get_id
-    if @rider.status == "Available" 
+    if @rider.status == "Available"
       @orders = Order.Prepared
     else
       @order = Order.find session[:order_id]
@@ -32,7 +32,7 @@ class Users::RidersController < ApplicationController
     rider = Rider.find get_id
     order = Order.find params[:order_id]
     session[:order_id] = order.id
-    # this methods skips validations 
+    # this methods skips validations
     rider.update_column :status, "Busy" # rider is no more accepts order
     order.rider = rider # assign rider id to that order
     order.status = "Out_For_Delivery" # order status is updated
@@ -94,6 +94,6 @@ class Users::RidersController < ApplicationController
     otp = rand(100000 .. 999999)
     order.client.user.misc.update_column :otp, otp
     rider = Rider.find get_id
-    UserMailer.order_status_update_delivery( order, otp, rider).deliver_now
+    UserMailer.order_status_update_delivery(order, otp, rider).deliver_now
    end
 end

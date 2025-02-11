@@ -12,14 +12,14 @@ class Users::RestaurantsController < ApplicationController
     # mail send to user
 
     # appC
-    send_otp user
+    send_otp user if user
 
     # after handling user redirect to otp verification
   end
 
   def index
     @role = get_role
-    if @role == "Client" 
+    if @role == "Client"
       @client = Client.find get_id
     end
     @restaurants = Restaurant.all
