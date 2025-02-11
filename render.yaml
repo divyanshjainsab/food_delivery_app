@@ -1,8 +1,15 @@
+# Exported from Render on 2025-02-11T07:28:01Z
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
-    plan: free
+- name: food.delivery.app@bestpeers
+  databaseName: food_delivery_appatbestpeers_93or
+  user: food_delivery_appatbestpeers_93or_user
+  plan: free
+  region: singapore
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+    postgresMajorVersion: "16"
+    version: "1"
 
 services:
   - type: web
