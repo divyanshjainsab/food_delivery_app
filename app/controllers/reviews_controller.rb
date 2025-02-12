@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
     def new
-        redirect_to root_path unless params[:pid] == Order.find(params[:o_id]).payment.payment_intent_id
+        order = Order.find(params[:o_id])
+        redirect_to root_path unless params[:pid] == order.payment.payment_intent_id
+        @rid = order.dish.restaurant_id
         @review = Review.new
     end
 
