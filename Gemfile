@@ -50,8 +50,11 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "shoulda-matchers"
 
+  gem "rspec-rails"
 end
 
 group :development do
@@ -72,7 +75,7 @@ gem "bcrypt", "~> 3.1"
 
 gem "stripe", "~> 13.4"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: [ :development, :test ]
 
 gem "rack-cors", "~> 2.0"
 
