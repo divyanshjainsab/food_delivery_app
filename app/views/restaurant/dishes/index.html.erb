@@ -1,13 +1,69 @@
 <%= stylesheet_link_tag 'restaurant/dishes/index' %>
 
-<%= render "partials/restaurant_nav" %>
 <% if flash[:notice] %>
-            <div class="alert alert-info"><%= flash[:notice] %></div>
-        <% end %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
 <section id="dish-cards">
-    <% @restaurant.dishes.each do |dish| %>
-        <a href= <%= restaurant_dish_path(dish)%>>
-            <%= render "partials/card", locals: { dish: dish} %>
-        </a>
+    <% @restaurant.dishes.unscoped.each do |dish| %>
+        <div style="position: relative;" id=<%= "dish-#{dish.id}"%>>
+            <button class="close-btn" value= <%= dish.name%> id=<%="delete-#{dish.id}"%> onclick="f(event)" >×</button>
+            <a href= <%= restaurant_dish_path(dish)%>>
+                <%= render "partials/card", locals: { dish: dish} %>
+            </a>
+            <center style="display: flex; justify-content: center; align-items: center; gap: 1rem; font-size: 1rem; " >
+                <b style="color: <%= dish.status == 'In-Stock' ? 'green' : 'red'%>">Available: </b><input type="checkbox" id="toggle-<%= dish.id%>" class="checkbox" <%= 'checked' if dish.status == 'In-Stock' %> id="<%= dish.id%>" onclick="updateStatus(event)" />
+                <label for="toggle-<%= dish.id%>" class="switch" ></label></center>
+        </div>
     <% end %>
 </section>
+
+<%= content_for :page_js do %>
+  <script>
+        function f(event){
+            id = event.target.id.split('-')[1]
+            bool = confirm(`Delete Dish named: ${event.target.value}`)
+            if(bool){
+                fetch(`/restaurant/dishes/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content,  // CSRF token
+                    },
+                    body: JSON.stringify({
+                        id: id,
+                        requestType: 'Status-Update',
+                    })
+                })
+                document.getElementById(`dish-${id}`).remove()
+            }
+        }
+
+
+      function updateStatus(event){
+        id = event.target.id.split('-')[1]
+        fetch(`/restaurant/dishes/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content,  // CSRF token
+            },
+            body: JSON.stringify({
+                id: id,
+                requestType: 'Status-Update',
+            })
+            })
+            .then(response => {
+                if (response.ok) {
+                // Redirect to the dishes page if update was successful
+                window.location.href = '/restaurant/dishes';
+                } else {
+                // Handle errors (e.g., show a message if the update failed)
+                console.error('Update failed');
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            });
+        }
+  </script>
+<% end %>

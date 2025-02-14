@@ -116,3 +116,25 @@ body {
   border-radius: 5px;
   text-align: center;
 }
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  position: absolute;
+  right: 1rem;
+  padding: 1rem;
+  line-height: 0;
+  top: -1rem;
+  }
+
+.close-btn:hover {
+  background-color: red; 
+  border-radius: 50%;
+  font-weight: 500;
+  color: white;
+}
