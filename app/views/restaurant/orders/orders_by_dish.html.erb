@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag 'restaurant/orders/index' %>
+
+<div class="container">
+<h1>All Orders</h1>
+
+<% if flash[:message] %>
+  <div class="flash-message">
+    <p><%= flash[:message] %></p>
+  </div>
+<% end %>
+
+<% if @orders.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Dish Name</th>
+        <th>Dish ID</th>
+        <th>Order Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order[0][0] %></td>
+          <td><%= order[0][1] %></td>
+          <td><%= order[1] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No orders have been placed yet.</p>
+<% end %>
+  <center><%= render "partials/back_button" %></center>
+<div class="footer">
+  <p>All orders are displayed here. Please manage them accordingly.</p>
+</div>
+</div>

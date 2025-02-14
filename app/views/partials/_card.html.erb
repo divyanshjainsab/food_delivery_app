@@ -1,16 +1,16 @@
 <%= stylesheet_link_tag 'partials/card' %>
 
-<div id="tile">
     <% dish = locals[:dish] %>
+    <div id="tile" style=<% 'filter: grayscale(1);' if dish.status == "Out-Of-Stock" %> >
     <div id="image-container">
-        <%= image_tag dish.image, width: 250, height: 250 if dish.image.persisted? %>
-        <div class="label <%= dish.category == 'Veg' ? 'veg' : 'non-veg' %>">
+        <%= image_tag dish.image, width: 250, height: 250, style: ('filter: grayscale(1);' if dish.status == "Out-Of-Stock" ) if dish.image.persisted? %>
+        <div class="label <%= dish.category == 'Veg' ? 'veg' : 'non-veg' %>" style= '<%="background-color: gray;" if dish.status == "Out-Of-Stock" %>'>
             <%= dish.category %>
-            </div>
+        </div>
     </div>
-    <div id="card-content">
-        <h2 id="dish-title"><%= dish.name %></h2>
-            <div id="dish-footer">
+    <div id="card-content" style= '<%="background-color: gray;" if dish.status == "Out-Of-Stock" %>' >
+        <h2 id="dish-title"><%= dish.name.slice(0 .. 35) %></h2>
+        <div id="dish-footer">
             <span id="dish-price">₹<%= dish.price %></span>
         </div>
     </div>

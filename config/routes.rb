@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     resources :dishes
     resources :orders
   end
-  # the above routes are for managing dishes of a restaurant
+  get "/restaurant/orders_by_dish", to: "restaurant/orders#orders_by_dish"
+  # the above routes are for managing dishes and restaurants of a restaurant
 
   namespace "user" do
     resources :orders
@@ -44,11 +45,11 @@ Rails.application.routes.draw do
 
 
   # these routes for payments
-  resources :payments, only: [:new, :create ]
+  resources :payments, only: [ :new, :create ]
 
-  get '/cancel', to: "payments#cancel"
-  get '/success/:dish_id', to: "payments#success"
-  
+  get "/cancel", to: "payments#cancel"
+  get "/success/:dish_id", to: "payments#success"
+
   # rider dashboard
   get "/rider/dashboard", to: "users/riders#index"
 
@@ -60,5 +61,5 @@ Rails.application.routes.draw do
   resource :reviews, only: [ :new, :create ]
 
   # webhook
-  post '/webhook', to: "webhooks#receive"
+  post "/webhook", to: "webhooks#receive"
 end
